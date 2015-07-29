@@ -20,6 +20,8 @@ set softtabstop=4   " Sets the number of columns for a TAB
 
 set expandtab       " Expand TABs to spaces
 
+" change the mapleader from \ to ,
+let mapleader=","
 
 " adds in mappings for CommandT
 noremap <leader>o <Esc>:CommandT<CR>
