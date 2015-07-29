@@ -31,3 +31,7 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 noremap <leader>o <Esc>:CommandT<CR>
 noremap <leader>O <Esc>:CommandTFlush<CR>
 noremap <leader>m <Esc>:CommandTBuffer<CR>
+
+" don't beep
+set visualbell
+set noerrorbells
