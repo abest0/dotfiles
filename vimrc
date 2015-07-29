@@ -23,6 +23,10 @@ set expandtab       " Expand TABs to spaces
 " change the mapleader from \ to ,
 let mapleader=","
 
+" quickly edit/reload the vimrc file
+nmap <silent> <leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader>sv :so $MYVIMRC<CR>
+
 " adds in mappings for CommandT
 noremap <leader>o <Esc>:CommandT<CR>
 noremap <leader>O <Esc>:CommandTFlush<CR>
