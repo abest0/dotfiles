@@ -35,3 +35,7 @@ noremap <leader>m <Esc>:CommandTBuffer<CR>
 " don't beep
 set visualbell
 set noerrorbells
+
+" no backup... no swap!
+set nobackup
+set noswapfile
