@@ -39,3 +39,15 @@ set noerrorbells
 " no backup... no swap!
 set nobackup
 set noswapfile
+
+" making life more difficult for everyone
+" prevents using up, down, left, right to navigate
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <right> <nop>
+nnoremap <left> <nop>
+
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <right> <nop>
+inoremap <left> <nop>
