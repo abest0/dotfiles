@@ -51,3 +51,6 @@ inoremap <up> <nop>
 inoremap <down> <nop>
 inoremap <right> <nop>
 inoremap <left> <nop>
+
+" automatically start up NERDTree on vim startup
+map <C-n> :NERDTreeToggle<CR>   " toggle NERDTree
