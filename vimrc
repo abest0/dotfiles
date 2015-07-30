@@ -54,3 +54,7 @@ inoremap <left> <nop>
 
 " automatically start up NERDTree on vim startup
 map <C-n> :NERDTreeToggle<CR>   " toggle NERDTree
+
+" expanding the size of windows
+nnoremap + <c-w>+
+nnoremap - <c-w>-
