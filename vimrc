@@ -58,3 +58,10 @@ map <C-n> :NERDTreeToggle<CR>   " toggle NERDTree
 " expanding the size of windows
 nnoremap + <c-w>+
 nnoremap - <c-w>-
+
+" tell VIM to always put a status line in, even if there is only one window
+set laststatus=2
+" set statusline=[%n]\ %<%.99f\ %h%w%m%r%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%y%=%-16(\ %l,%c-%v\ %)%P
+
+
+set statusline=%f\ %m\ %r\ Line:%l/%L[%p%%]\ Col:%v\ Buf:#%n\ [%b][0x%B]
