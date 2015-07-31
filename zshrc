@@ -17,7 +17,7 @@ export GOPATH="/Users/abest/go"
 # export GRADLE_HOME
 # export PATH=$PATH:$GRADLE_HOME/bin
 
-export EDITOR='vi'
+export EDITOR='vim'
 
 # export PATH="/usr/local/lib/node_modules/phonegap/bin:$PATH"
 # Set name of the theme to load.
@@ -37,6 +37,18 @@ alias cls='clear'
 #
 # mount the android file system
 function mountAndroid { hdiutil attach ~/android.dmg.sparseimage -mountpoint /Volumes/android; }
+
+
+# adding in a function to startup vim
+function v
+{
+    if [[ $# > 0 ]]; then
+        command vim --remote-silent "$@"
+    else
+        command vim
+    fi
+}
+
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
