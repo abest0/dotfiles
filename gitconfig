@@ -1,0 +1,58 @@
+﻿[include]
+    path = dotfiles/gitidentity
+[core]
+	autocrlf = false
+	editor = /usr/local/bin/vim
+[color "status"]
+	added = cyan
+	changed = yellow
+	untracked = magenta
+[alias]
+	ci = commit
+	co = checkout
+	cob = checkout -b
+	cm = commit -m
+	save = !git add -A && git commit -m 'SAVEPOINT'
+	undo = reset HEAD~1 --mixed
+	wip = !git add -u && git commit -m "WIP"
+	# wip = "git add -A; git ls-files --deleted -z | xargs -0 git rm; git commit -m \"wip\""
+	unwip = "git log -n 1 | grep -q -c wip && git reset HEAD~1"
+	amend = commit -a --amend
+	stat = status
+	st = "status -s"
+	stsh = stash
+	rst = reset
+	br = branch
+	rb = rebase
+	llog = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+	lloga = "log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+	llogs = "log --all -n10 --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+	keep = "ls-files --others --directory --exclude-standard | xargs -L 1 -I file touch file/'.gitkeep';"
+	det = log
+	ll = "log --oneline"
+	unstage = reset HEAD --
+	last = log -1 HEAD
+	ploop = rebase --onto
+	no-track = "update-index --assume-unchanged"
+	track = "update-index --no-assume-unchanged"
+	bclean = "!f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs git branch -d; }; f"
+	bdone = "!f() { git checkout ${1-master} && git up && git bclean ${1-master}; }; f"
+[merge]
+	tool = p4merge
+	keepBackup = false
+	keepTemporaries = false
+
+[diff]
+	guitool = p4merge
+[difftool "p4merge"]
+	cmd = \"D:/Program Files/Perforce/p4merge.exe\" \"$LOCAL\" \"$BASE\"
+	path = D:/Program Files/Perforce/p4merge.exe
+[mergetool "p4merge"]
+	trustExitCode = true
+	keepBackup = false
+	keepTemporaries = false
+	cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge "$PWD/$BASE" "$PWD/$REMOTE" "$PWD/$LOCAL" "$PWD/$MERGED"
+[color]
+	status = true
+	interactive = true
+	diff = true
