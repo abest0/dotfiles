@@ -74,3 +74,9 @@ nnoremap <C-l> <C-w>l
 
 " quick escaping from insert mode
 inoremap jj <ESC>
+
+" resize current buffer by +/- 5 
+nnoremap <silent> <leader>h :vertical resize +5<cr>
+nnoremap <silent> <leader>l :vertical resize -5<cr>
+nnoremap <silent> <leader>k :resize +5<cr>
+nnoremap <silent> <leader>j :resize -5<cr>
