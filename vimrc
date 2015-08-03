@@ -82,4 +82,5 @@ nnoremap <silent> <leader>k :resize +5<cr>
 nnoremap <silent> <leader>j :resize -5<cr>
 
 " automatically save when losing focus
-au FocusLost * :wa
+autocmd BufLeave,FocusLost * silent! :wa
+
