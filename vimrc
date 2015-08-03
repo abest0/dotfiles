@@ -84,3 +84,7 @@ nnoremap <silent> <leader>j :resize -5<cr>
 " automatically save when losing focus
 autocmd BufLeave,FocusLost * silent! :wa
 
+map <c-f> :call JsBeautify()<cr>
+autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
+autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
+autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
