@@ -87,3 +87,4 @@ export DOCKER_TLS_VERIFY=1
 
 alias dc=docker-compose
 alias dm=docker-machine
+eval "$(direnv hook zsh)"
