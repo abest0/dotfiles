@@ -88,3 +88,11 @@ map <c-f> :call JsBeautify()<cr>
 autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
 autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
 autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
+
+" adds syntax highlighting and indenting for js files
+let g:jsx_ext_required = 0
+
+" cycle through buggers
+nnoremap <Tab> :bnext<CR>
+nnoremap <S-TAB> :bprev<CR>
+
