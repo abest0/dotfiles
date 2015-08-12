@@ -99,3 +99,5 @@ let g:jsx_ext_required = 0
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-TAB> :bprev<CR>
 
+nmap <F8> :TagbarToggle<CR> " adds key for toggling the tagbar
+
