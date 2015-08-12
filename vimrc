@@ -4,6 +4,7 @@ syntax on
 call pathogen#infect()
 call pathogen#helptags()
 
+set background=dark
 colorscheme feral
 set number          " set the basic line number style
 "set relativenumber 	" set the number style
@@ -19,6 +20,8 @@ set backspace=2     " Backspace to delete up a line
 set softtabstop=4   " Sets the number of columns for a TAB
 
 set expandtab       " Expand TABs to spaces
+filetype on
+filetype plugin indent on
 
 " change the mapleader from \ to ,
 let mapleader=","
