@@ -101,3 +101,5 @@ nnoremap <S-TAB> :bprev<CR>
 
 nmap <F8> :TagbarToggle<CR> " adds key for toggling the tagbar
 
+set nowrap
+
