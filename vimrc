@@ -10,6 +10,14 @@ set number          " set the basic line number style
 "set relativenumber 	" set the number style
 set cursorline      " highlight current line
 
+highlight CursorLine term=NONE cterm=NONE ctermbg=236 guibg=#2d2d2d
+
+augroup CursorLine
+    au!
+    au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+    au WinLeave * setlocal nocursorline
+augroup END
+
 set tabstop=4       " The width of a TAB is set to 4.
                     " Still it is a \t. It is just that
                     " Vim will interpret it to be having
