@@ -156,3 +156,7 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 " insert lines
 nmap <S-Enter> O<Esc>j
 nmap <CR> o<Esc>k
+
+" copy & paste like a BAWSSSS!!
+vmap <C-x> :!pbcopy<CR>
+vmap <C-c> :w !pbcopy<CR><CR> 
