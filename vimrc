@@ -160,3 +160,9 @@ nmap <CR> o<Esc>k
 " copy & paste like a BAWSSSS!!
 vmap <C-x> :!pbcopy<CR>
 vmap <C-c> :w !pbcopy<CR><CR> 
+
+" Inserts a line when using delimitMate
+inoremap <C-c> <CR><Esc>O
+
+" Adding in go lint
+set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
