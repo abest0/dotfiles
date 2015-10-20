@@ -153,6 +153,15 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
+" Search for word under cursor
+nnoremap <Leader>f :%s/\<<C-r><C-w>\>/
+
+" remove the preview window on auto coompletion
+set completeopt-=preview
+
+" adds searching for the visually selected text
+vnoremap // y/<C-R>"<CR>
+
 " insert lines
 nmap <S-Enter> O<Esc>j
 nmap <CR> o<Esc>k
