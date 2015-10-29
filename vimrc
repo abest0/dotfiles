@@ -175,3 +175,5 @@ inoremap <C-c> <CR><Esc>O
 
 " Adding in go lint
 set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
+
+set mouse=a
