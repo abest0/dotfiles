@@ -154,7 +154,8 @@ autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " Search for word under cursor
-nnoremap <Leader>f :%s/\<<C-r><C-w>\>/
+nnoremap <Leader><S-F> :%s/\<<C-r><C-w>\>/
+nnoremap <Leader>f :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " remove the preview window on auto coompletion
 set completeopt-=preview
@@ -175,5 +176,17 @@ inoremap <C-c> <CR><Esc>O
 
 " Adding in go lint
 set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
+
+" Silver Searching
+if executable('ag')
+    " Use ag over grep
+    set grepprg=ag\ --nogroup\ --nocolor
+
+    " use ag in ctrlP for listing files
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+    " ag is fast enought that ctrlp does need caching
+    let g:ctrlp_use_caching = 0
+endif
 
 set mouse=a
