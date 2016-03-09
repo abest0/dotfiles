@@ -6,8 +6,8 @@ call pathogen#helptags()
 
 set background=dark
 colorscheme feral
-set number          " set the basic line number style
-"set relativenumber 	" set the number style
+" set number          " set the basic line number style
+set relativenumber 	" set the number style
 set cursorline      " highlight current line
 
 highlight CursorLine term=NONE cterm=NONE ctermbg=236 guibg=#2d2d2d
