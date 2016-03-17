@@ -4,17 +4,11 @@ ZSH=$HOME/.oh-my-zsh
 export PATH=$PATH:$HOME/.rbenv/bin
 
 export ANDROID_HOME="/usr/local/Cellar/android-sdk/24.0.2"
-# export PATH="$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$PATH"
-# export PATH=$PATH:"/Users/abest/applications/activator-1.2.3"
 
 export PYTHONPATH="/usr/local/lib/python2.7/site-packages/"
 
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
-
-# GRADLE_HOME=/Users/abest/install/gradle-1.9;
-# export GRADLE_HOME
-# export PATH=$PATH:$GRADLE_HOME/bin
 
 export EDITOR='vim'
 
@@ -34,9 +28,6 @@ alias la='ls -a'
 alias cls='clear'
 # alias g='git'
 #
-# mount the android file system
-function mountAndroid { hdiutil attach ~/android.dmg.sparseimage -mountpoint /Volumes/android; }
-
 
 # adding in a function to startup vim
 function v
