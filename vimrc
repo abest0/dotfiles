@@ -200,3 +200,21 @@ augroup pencil
     autocmd FileType text           call pencil#init({'wrap': 'hard'})
 augroup END
 
+
+function! s:goyo_enter()
+    silent! tmux set status off
+    Pencil
+    set nocursorline
+endfunction
+
+function! s:goyo_leave()
+    silent !tmux set status on
+    NoPencil
+    set nocursorline
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
+
+map <F11> :Goyo <CR>
