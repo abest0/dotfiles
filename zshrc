@@ -62,10 +62,12 @@ setopt histignorealldups sharehistory
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # plugins=(git rails ruby brew)
-plugins=(git brew osx history-substring-search gradle go docker aws)
+plugins=(git brew osx history-substring-search gradle go docker aws vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 source ~/.bin/tmuxinator.zsh
+
+bindkey -M viins 'jj' vi-cmd-mode
 
 # Customize to your needs...
 autoload -U colors
