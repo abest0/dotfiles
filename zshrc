@@ -4,6 +4,8 @@ ZSH=$HOME/.oh-my-zsh
 export PATH=$PATH:$HOME/.rbenv/bin
 
 export ANDROID_HOME="/usr/local/Cellar/android-sdk/24.0.2"
+# export PATH="$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$PATH"
+# export PATH=$PATH:"/Users/abest/applications/activator-1.2.3"
 
 export PYTHONPATH="/usr/local/lib/python2.7/site-packages/"
 
