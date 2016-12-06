@@ -10,7 +10,7 @@ export PATH="$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$PATH"
 export PYTHONPATH="/usr/local/lib/python2.7/site-packages/"
 
 export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$HOME/bin:$GOPATH/bin
 
 export EDITOR='vim'
 
