@@ -70,6 +70,10 @@ source $ZSH/oh-my-zsh.sh
 source ~/.bin/tmuxinator.zsh
 
 bindkey -M viins 'jj' vi-cmd-mode
+# allow ctrl-a to go to beginning of line while in insert mode
+bindkey '^a' beginning-of-line
+# # allow ctrl-e to go to end of line while in insert mode
+bindkey '^e' end-of-line
 
 # Customize to your needs...
 autoload -U colors
