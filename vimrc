@@ -6,11 +6,11 @@ call pathogen#helptags()
 
 set background=dark
 colorscheme feral
-" set number          " set the basic line number style
+set number          " set the basic line number style
 set relativenumber 	" set the number style
 set cursorline      " highlight current line
 
-highlight CursorLine term=NONE cterm=NONE ctermbg=236 guibg=#2d2d2d
+highlight CursorLine term=NONE cterm=NONE ctermbg=236 guibg=#fa8cfa
 
 augroup CursorLine
     au!
@@ -100,11 +100,13 @@ autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
 " adds syntax highlighting and indenting for js files
 let g:jsx_ext_required = 0
 
-" cycle through buggers
+" cycle through buffers
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-TAB> :bprev<CR>
 
 nmap <F8> :TagbarToggle<CR> " adds key for toggling the tagbar
+"   [F2]    shows and hides whitespace.
+nnoremap    <F2> :<C-U>setlocal lcs=tab:>-,trail:-,eol:$ list! list? <CR>
 
 set nowrap
 set splitright
