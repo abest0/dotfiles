@@ -2,7 +2,6 @@
     path = dotfiles/gitidentity
 [core]
 	autocrlf = false
-	editor = /usr/local/bin/vim
 [color "status"]
 	added = cyan
 	changed = yellow
