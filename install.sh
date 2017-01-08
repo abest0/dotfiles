@@ -5,8 +5,6 @@ backup="$HOME/backup_dotfiles"
 files=(.ctags .zshrc .vimrc .vim .tmux.conf .gitconfig)
 
 
-actionDone() { echo "...done"; }
-
 backup() {
     if [ -e $1 ]; then
         cp $1 $backup
@@ -16,19 +14,20 @@ backup() {
 
 
 # create the dotfile backup dir
-echo "Creating $backup for backing up existing dotfiles"
+echo -n "Creating $backup for backing up existing dotfiles..."
 mkdir -p $backup
-actionDone()
+echo "done"
 
 
 # Make ZSH the default shell environment
-echo "Setting zsh as the default shell"
+echo -n "Setting zsh as the default shell..."
 chsh -s $(which zsh)
+echo "done"
 
 # get an install oh-my-zsh
-echo "Downloading and installing oh-my-zsh"
+echo -n "Downloading and installing oh-my-zsh..."
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-actionDone()
+echo "done"
 
 # create links for the following files
 for f in files; do
