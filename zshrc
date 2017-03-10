@@ -56,12 +56,8 @@ setopt histignorealldups sharehistory
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # plugins=(git rails ruby brew)
-plugins=(git history-substring-search gradle go docker vi-mode)
+plugins=(git history-substring-search gradle go docker vi-mode vagrant)
 # plugins=(git brew osx aws history-substring-search gradle go docker vi-mode)
-
-source $ZSH/oh-my-zsh.sh
-# Shell to run on AWS linux machines to enable aws completion in zsh
-# source /usr/share/zsh/site-functions/aws_zsh_completer.sh
 
 bindkey -M viins 'jj' vi-cmd-mode
 # allow ctrl-a to go to beginning of line while in insert mode
@@ -76,3 +72,15 @@ colors
 alias dc=docker-compose
 alias dm=docker-machine
 #eval "$(direnv hook zsh)"
+#
+
+# source custom specific configuration
+if [ -d $HOME/dotfiles/custom ]; then
+    for f in $HOME/dotfiles/custom/*.sh(.N); do
+        source $f
+    done
+fi
+
+source $ZSH/oh-my-zsh.sh
+# Shell to run on AWS linux machines to enable aws completion in zsh
+# source /usr/share/zsh/site-functions/aws_zsh_completer.sh
