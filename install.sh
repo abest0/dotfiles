@@ -2,7 +2,7 @@
 
 dotfiles="$HOME/dotfiles"
 backup="$HOME/backup_dotfiles"
-files=(.ctags .zshrc .vimrc .vim .tmux.conf .gitconfig)
+files=( ctags zshrc vimrc vim tmux.conf gitconfig )
 
 
 backup() {
@@ -30,7 +30,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 echo "done"
 
 # create links for the following files
-for f in files; do
+for f in "${files[@]}"; do
     backup ~/.$f
     ln -s "$dotfiles/$f" ~/.$f
 done
