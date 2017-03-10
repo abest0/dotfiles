@@ -2,7 +2,6 @@
 ZSH=$HOME/.oh-my-zsh
 ZSH_CUSTOM=$HOME/dotfiles/zsh_custom
 
-export PYTHONPATH="/usr/local/lib/python2.7/site-packages/"
 
 export GOPATH=$HOME/go
 export PATH=$PATH:$HOME/bin:$GOPATH/bin
@@ -28,7 +27,7 @@ alias cls='clear'
 function v
 {
     if [[ $# > 0 ]]; then
-        command vim --remote-silent "$@"
+        command vim "$@"
     else
         command vim
     fi
