@@ -1,5 +1,6 @@
 
 -- Don't display "helplful" messages on startup
+\x auto
 \set QUIET 1
 \set ON_ERROR_ROLLBACK interactive
 \set COMP_KEYWORD_CASE upper
