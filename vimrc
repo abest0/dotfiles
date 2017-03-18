@@ -105,6 +105,10 @@ nnoremap <S-TAB> :bprev<CR>
 nmap <F8> :TagbarToggle<CR> " adds key for toggling the tagbar
 "   [F2]    shows and hides whitespace.
 nnoremap    <F2> :<C-U>setlocal lcs=tab:>-,trail:-,eol:$ list! list? <CR>
+"   [F3]    toggle paste mode
+nnoremap    <F3> :set invpaste paste?<CR>
+set pastetoggle=<F3>
+set showmode
 
 set nowrap
 set splitright
