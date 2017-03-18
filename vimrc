@@ -136,17 +136,20 @@ inoremap <expr><C-l>     neocomplete#complete_common_string()
 
 " Recommended key-mappings.
 " <CR>: close popup and save indent.
-inoremap  <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-    return neocomplete#close_popup() . "\<CR>"
-    " For no inserting <CR> key.
-    "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
-endfunction
+" inoremap  <CR> <C-r>=<SID>my_cr_function()<CR>
+imap <expr> <CR> pumvisible() ? neocomplete#close_popup() : "<Plug>delimitMateCR"
+" function! s:my_cr_function()
+"     return neocomplete#close_popup() . "\<CR>"
+"     " For no inserting <CR> key.
+"     "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+" endfunction
+
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 "       " <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+" inoremap <expr> <BS>  pumvisible() ? neocomplete#smart_close_popup()."\<C-h>" : "<BS>"
+" inoremap <expr><S-BS> <Plug>delimitMateS-BS
 inoremap <expr><C-y>  neocomplete#close_popup()
 inoremap <expr><C-e>  neocomplete#cancel_popup()"
 
@@ -222,3 +225,6 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 
 map <F11> :Goyo <CR>
+
+let delimitMate_expand_cr = 2
+let delimitMate_expand_space = 1
