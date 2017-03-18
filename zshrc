@@ -1,26 +1,18 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
+ZSH_CUSTOM=$HOME/dotfiles/zsh_custom
 
-export PATH=$PATH:$HOME/.rbenv/bin
-
-export ANDROID_HOME="/usr/local/Cellar/android-sdk/24.4.1_1"
-export PATH="$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$PATH"
-# export PATH=$PATH:"/Users/abest/applications/activator-1.2.3"
-
-export PYTHONPATH="/usr/local/lib/python2.7/site-packages/"
 
 export GOPATH=$HOME/go
 export PATH=$PATH:$HOME/bin:$GOPATH/bin
 
 export EDITOR='vim'
 
-# export PATH="/usr/local/lib/node_modules/phonegap/bin:$PATH"
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 export ZSH_THEME="utilitas-3"
-#export ZSH_THEME="gallois"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -35,7 +27,7 @@ alias cls='clear'
 function v
 {
     if [[ $# > 0 ]]; then
-        command vim --remote-silent "$@"
+        command vim "$@"
     else
         command vim
     fi
@@ -64,10 +56,8 @@ setopt histignorealldups sharehistory
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # plugins=(git rails ruby brew)
-plugins=(git brew osx history-substring-search gradle go docker aws vi-mode)
-
-source $ZSH/oh-my-zsh.sh
-source ~/.bin/tmuxinator.zsh
+plugins=(git history-substring-search gradle go docker vi-mode vagrant)
+# plugins=(git brew osx aws history-substring-search gradle go docker vi-mode)
 
 bindkey -M viins 'jj' vi-cmd-mode
 # allow ctrl-a to go to beginning of line while in insert mode
@@ -81,4 +71,16 @@ colors
 
 alias dc=docker-compose
 alias dm=docker-machine
-eval "$(direnv hook zsh)"
+#eval "$(direnv hook zsh)"
+#
+
+# source custom specific configuration
+if [ -d $HOME/dotfiles/custom ]; then
+    for f in $HOME/dotfiles/custom/*.sh(.N); do
+        source $f
+    done
+fi
+
+source $ZSH/oh-my-zsh.sh
+# Shell to run on AWS linux machines to enable aws completion in zsh
+# source /usr/share/zsh/site-functions/aws_zsh_completer.sh

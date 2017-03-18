@@ -38,10 +38,8 @@ let mapleader=","
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
-" adds in mappings for CommandT
-noremap <leader>o <Esc>:CommandT<CR>
-noremap <leader>O <Esc>:CommandTFlush<CR>
-noremap <leader>m <Esc>:CommandTBuffer<CR>
+" adds mapping for NERDTreeFind
+noremap <leader>w <Esc>:NERDTreeFind<CR>
 
 " don't beep
 set visualbell
