@@ -159,6 +159,7 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 " Search for word under cursor
 nnoremap <Leader><S-F> :%s/\<<C-r><C-w>\>/
@@ -190,11 +191,19 @@ if executable('ag')
     set grepprg=ag\ --nogroup\ --nocolor
 
     " use ag in ctrlP for listing files
-    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+    " let g:ctrlp_user_command = 'ag %s -l --nocolor --nogroup -g ""'
+    let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden 
+		\ --ignore .git 
+        \ --ignore .svn 
+        \ --ignore .hg 
+        \ --ignore .DS_Store 
+        \ --ignore "**/*.pyc" -g ""'
 
     " ag is fast enought that ctrlp does need caching
     let g:ctrlp_use_caching = 0
 endif
+
+let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 
 set mouse=a
 
