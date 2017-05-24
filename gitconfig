@@ -38,14 +38,15 @@
 	bdone = "!f() { git checkout ${1-master} && git up && git bclean ${1-master}; }; f"
     ignored = !git ls-files -v | grep ^[[:lower:]]""
 [merge]
-	tool = extMerge
+	tool = extMerge.sh
     trustExitCode = true
 	keepBackup = false
 	keepTemporaries = false
-[diff]
-	guitool = exMerge
-[mergetool "p4merge"]
-	cmd = extMerge "$BASE" "$REMOTE" "$LOCAL" "$MERGED"
+# [diff]\
+# 	guitool = extDiff.sh
+[mergetool "extMerge.sh"]
+	cmd = extMerge.sh "$BASE" "$REMOTE" "$LOCAL" "$MERGED"
+    trustExitCode = false
 [color]
 	status = true
 	interactive = true
