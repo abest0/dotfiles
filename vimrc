@@ -238,5 +238,17 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 map <F11> :Goyo <CR>
 
+
+noremap <silent> <leader>SS <ESC>:SyntasticToggleMode<CR>
+noremap <silent> <leader>SC <ESC>:SyntasticCheck<CR>
 let delimitMate_expand_cr = 2
 let delimitMate_expand_space = 1
+
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
