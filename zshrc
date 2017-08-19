@@ -84,3 +84,10 @@ fi
 source $ZSH/oh-my-zsh.sh
 # Shell to run on AWS linux machines to enable aws completion in zsh
 # source /usr/share/zsh/site-functions/aws_zsh_completer.sh
+#
+
+function install_jsctags {
+    npm install jsctags
+    # https://github.com/mozilla/doctorjs/issues/52
+    sed -i '51i tags: [],' /usr/local/lib/jsctags/ctags/index.js
+}
