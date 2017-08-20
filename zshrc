@@ -1,12 +1,4 @@
-# Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
 ZSH_CUSTOM=$HOME/dotfiles/zsh_custom
-
-
-export GOPATH=$HOME/go
-export PATH=$PATH:$HOME/bin:$GOPATH/bin
-
-export EDITOR='vim'
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
