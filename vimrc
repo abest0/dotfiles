@@ -102,12 +102,15 @@ let g:jsx_ext_required = 0
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-TAB> :bprev<CR>
 
-nmap <F8> :TagbarToggle<CR> " adds key for toggling the tagbar
 "   [F2]    shows and hides whitespace.
 nnoremap    <F2> :<C-U>setlocal lcs=tab:>-,trail:-,eol:$ list! list? <CR>
 "   [F3]    toggle paste mode
 nnoremap    <F3> :set invpaste paste?<CR>
 set pastetoggle=<F3>
+
+" spell checking
+nnoremap    <F4> :setlocal spell! spelllang=en_us<CR>
+nmap        <F8> :TagbarToggle<CR> " adds key for toggling the tagbar
 set showmode
 
 set nowrap
