@@ -120,7 +120,7 @@ set splitbelow
 
 " vim-airline configs
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme             = 'bubblegum'
+let g:airline_theme             = 'luna'
 
 " NeoComplete Bisshes
 " Disable AutoComplPop.
