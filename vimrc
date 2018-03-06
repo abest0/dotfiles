@@ -13,6 +13,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-rhubarb'
 
+Plug 'Shougo/deoplete.nvim'
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
 
 Plug 'christoomey/vim-tmux-navigator'
 
@@ -144,41 +147,29 @@ let g:airline_theme             = 'luna'
 " NeoComplete Bisshes
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
+
+
 " Use neocomplete.
-let g:neocomplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 1
 " Use smartcase.
-let g:neocomplete#enable_smart_case = 1
-" Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-if !exists('g:neocomplete#force_omni_input_patterns')
-    let g:neocomplete#force_omni_input_patterns = {}
-endif
+let g:deoplete#enable_smart_case = 1
+inoremap <expr><C-g> deoplete#undo_completion()
 
-" Plugin key-mappings.
-inoremap <expr><C-g>     neocomplete#undo_completion()
-inoremap <expr><C-l>     neocomplete#complete_common_string()
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS>  deoplete#smart_close_popup()."\<C-h>"
 
-" Recommended key-mappings.
 " <CR>: close popup and save indent.
-" inoremap  <CR> <C-r>=<SID>my_cr_function()<CR>
-imap <expr> <CR> pumvisible() ? neocomplete#close_popup() : "<Plug>delimitMateCR"
-" function! s:my_cr_function()
-"     return neocomplete#close_popup() . "\<CR>"
-"     " For no inserting <CR> key.
-"     "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
-" endfunction
+imap <expr> <CR> pumvisible() ? deoplete#close_popup() : "<Plug>delimitMateCR"
 
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-"       " <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-" inoremap <expr> <BS>  pumvisible() ? neocomplete#smart_close_popup()."\<C-h>" : "<BS>"
-" inoremap <expr><S-BS> <Plug>delimitMateS-BS
-inoremap <expr><C-y>  neocomplete#close_popup()
-inoremap <expr><C-e>  neocomplete#cancel_popup()"
+inoremap <expr><C-y>  deoplete#close_popup()
+inoremap <expr><C-e>  deoplete#cancel_popup()"
 
 " Enable omni completion.
+let g:deoplete#omni_patterns = {}
+let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
@@ -188,7 +179,7 @@ autocmd FileType python setlocal omnifunc=jedi#completions
     let g:jedi#completions_enabled = 0
     let g:jedi#auto_vim_configuration = 0
     let g:jedi#smart_auto_mappings = 0
-    let g:neocomplete#force_omni_input_patterns.python =
+    let g:deoplete#omni_patterns.python =
     \ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
     " alternative pattern: '\h\w*\|[^. \t]\.\w*'
 
