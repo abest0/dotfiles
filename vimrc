@@ -13,6 +13,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-rhubarb'
 
+
+Plug 'christoomey/vim-tmux-navigator'
+
 Plug 'Raimondi/delimitMate'
 Plug 'fatih/vim-go'
 Plug 'tomtom/tcomment_vim'
@@ -23,8 +26,8 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
 
-
 call plug#end()
+
 
 highlight CursorLine term=NONE cterm=NONE ctermbg=236 guibg=#fa8cfa
 
