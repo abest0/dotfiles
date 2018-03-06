@@ -17,13 +17,15 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
 
+Plug 'zchee/deoplete-go', {'for': 'go', 'do': 'make' }
+
 Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'Raimondi/delimitMate'
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', {'for': 'go'}
 Plug 'tomtom/tcomment_vim'
 Plug 'mattn/emmet-vim'
-Plug 'maksimr/vim-jsbeautify'
+Plug 'maksimr/vim-jsbeautify', {'for': 'javascript'}
 
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
@@ -144,13 +146,9 @@ set splitbelow
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme             = 'luna'
 
-" NeoComplete Bisshes
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
-
-
-" Use neocomplete.
-let g:deoplete#enable_at_startup = 1
+" Use deomplete.
+let g:deoplete#enable_at_startup = 0
+autocmd InsertEnter * call deoplete#enable()
 " Use smartcase.
 let g:deoplete#enable_smart_case = 1
 inoremap <expr><C-g> deoplete#undo_completion()
