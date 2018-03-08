@@ -12,6 +12,7 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-unimpaired'
 
 Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
