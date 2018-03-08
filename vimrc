@@ -22,6 +22,8 @@ Plug 'zchee/deoplete-go', {'for': 'go', 'do': 'make' }
 
 Plug 'christoomey/vim-tmux-navigator'
 
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle'  }
+
 Plug 'Raimondi/delimitMate'
 Plug 'fatih/vim-go', {'for': 'go'}
 Plug 'tomtom/tcomment_vim'
