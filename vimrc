@@ -24,6 +24,10 @@ Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle'  }
 
+Plug 'christoomey/vim-tmux-navigator'
+
+Plug 'reedes/vim-pencil'
+
 Plug 'Raimondi/delimitMate'
 Plug 'fatih/vim-go', {'for': 'go'}
 Plug 'tomtom/tcomment_vim'
