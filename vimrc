@@ -30,6 +30,8 @@ Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'reedes/vim-pencil'
 
+Plug 'mileszs/ack.vim'
+
 Plug 'Raimondi/delimitMate'
 Plug 'fatih/vim-go', {'for': 'go'}
 Plug 'tomtom/tcomment_vim'
@@ -146,6 +148,13 @@ set nowrap
 set splitright
 set splitbelow
 
+
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+
+cnoreabbrev Ack Ack!
+nnoremap <Leader>f :Ack<Space>
 
 
 " lighline configs
