@@ -24,8 +24,7 @@ Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle'  }
 
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
 
 Plug 'christoomey/vim-tmux-navigator'
 
@@ -104,10 +103,6 @@ nnoremap - <c-w>-
 
 " tell VIM to always put a status line in, even if there is only one window
 set laststatus=2
-" set statusline=[%n]\ %<%.99f\ %h%w%m%r%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%y%=%-16(\ %l,%c-%v\ %)%P
-
-
-" set statusline=%f\ %m\ %r\ Line:%l/%L[%p%%]\ Col:%v\ Buf:#%n\ [%b][0x%B]
 
 " adds some more mappings to move around like all of the other vimbots
 nnoremap <C-h> <C-w>h
@@ -152,9 +147,12 @@ set splitright
 set splitbelow
 
 
-" vim-airline configs
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme             = 'luna'
+
+" lighline configs
+set noshowmode
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ }
 
 " Use deomplete.
 let g:deoplete#enable_at_startup = 0
