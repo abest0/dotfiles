@@ -222,25 +222,16 @@ inoremap <C-c> <CR><Esc>O
 " Adding in go lint
 set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
 
-" Silver Searching
-if executable('ag')
-    " Use ag over grep
-    set grepprg=ag\ --nogroup\ --nocolor
+" Fuzzy file finder
+nmap <Leader><Enter> :Buffers<CR>
+nmap <c-p> :Files<CR>
+nmap <Leader>p :Files<CR>
+nmap <Leader>r :Tags<CR>
+let g:fzf_action = {
+      \ 'ctrl-s': 'split',
+      \ 'ctrl-v': 'vsplit'
+      \ }
 
-    " use ag in ctrlP for listing files
-    " let g:ctrlp_user_command = 'ag %s -l --nocolor --nogroup -g ""'
-    let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden 
-		\ --ignore .git 
-        \ --ignore .svn 
-        \ --ignore .hg 
-        \ --ignore .DS_Store 
-        \ --ignore "**/*.pyc" -g ""'
-
-    " ag is fast enought that ctrlp does need caching
-    let g:ctrlp_use_caching = 0
-endif
-
-let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 
 set mouse=a
 
