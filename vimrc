@@ -1,14 +1,50 @@
 syntax on
 
-
-call pathogen#infect()
-call pathogen#helptags()
-
 set background=dark
 colorscheme feral
 set number          " set the basic line number style
 set relativenumber 	" set the number style
 set cursorline      " highlight current line
+
+
+call plug#begin('~/.vim/plug')
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-unimpaired'
+
+Plug 'Shougo/deoplete.nvim'
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
+
+Plug 'zchee/deoplete-go', {'for': 'go', 'do': 'make' }
+Plug 'buoto/gotests-vim'
+
+Plug 'christoomey/vim-tmux-navigator'
+
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle'  }
+
+Plug 'itchyny/lightline.vim'
+
+Plug 'christoomey/vim-tmux-navigator'
+
+Plug 'reedes/vim-pencil'
+
+Plug 'mileszs/ack.vim'
+
+Plug 'Raimondi/delimitMate'
+Plug 'fatih/vim-go', {'for': 'go'}
+Plug 'tomtom/tcomment_vim'
+Plug 'mattn/emmet-vim'
+Plug 'maksimr/vim-jsbeautify', {'for': 'javascript'}
+
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
+Plug 'junegunn/fzf.vim'
+
+call plug#end()
+
 
 highlight CursorLine term=NONE cterm=NONE ctermbg=236 guibg=#fa8cfa
 
@@ -70,10 +106,6 @@ nnoremap - <c-w>-
 
 " tell VIM to always put a status line in, even if there is only one window
 set laststatus=2
-" set statusline=[%n]\ %<%.99f\ %h%w%m%r%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%y%=%-16(\ %l,%c-%v\ %)%P
-
-
-" set statusline=%f\ %m\ %r\ Line:%l/%L[%p%%]\ Col:%v\ Buf:#%n\ [%b][0x%B]
 
 " adds some more mappings to move around like all of the other vimbots
 nnoremap <C-h> <C-w>h
@@ -118,48 +150,42 @@ set splitright
 set splitbelow
 
 
-" vim-airline configs
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme             = 'luna'
-
-" NeoComplete Bisshes
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
-" Use neocomplete.
-let g:neocomplete#enable_at_startup = 1
-" Use smartcase.
-let g:neocomplete#enable_smart_case = 1
-" Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-if !exists('g:neocomplete#force_omni_input_patterns')
-    let g:neocomplete#force_omni_input_patterns = {}
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
 endif
 
-" Plugin key-mappings.
-inoremap <expr><C-g>     neocomplete#undo_completion()
-inoremap <expr><C-l>     neocomplete#complete_common_string()
+cnoreabbrev Ack Ack!
+nnoremap <Leader>f :Ack<Space>
 
-" Recommended key-mappings.
+
+" lighline configs
+set noshowmode
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ }
+
+" Use deomplete.
+let g:deoplete#enable_at_startup = 0
+autocmd InsertEnter * call deoplete#enable()
+" Use smartcase.
+let g:deoplete#enable_smart_case = 1
+inoremap <expr><C-g> deoplete#undo_completion()
+
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS>  deoplete#smart_close_popup()."\<C-h>"
+
 " <CR>: close popup and save indent.
-" inoremap  <CR> <C-r>=<SID>my_cr_function()<CR>
-imap <expr> <CR> pumvisible() ? neocomplete#close_popup() : "<Plug>delimitMateCR"
-" function! s:my_cr_function()
-"     return neocomplete#close_popup() . "\<CR>"
-"     " For no inserting <CR> key.
-"     "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
-" endfunction
+imap <expr> <CR> pumvisible() ? deoplete#close_popup() : "<Plug>delimitMateCR"
 
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-"       " <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-" inoremap <expr> <BS>  pumvisible() ? neocomplete#smart_close_popup()."\<C-h>" : "<BS>"
-" inoremap <expr><S-BS> <Plug>delimitMateS-BS
-inoremap <expr><C-y>  neocomplete#close_popup()
-inoremap <expr><C-e>  neocomplete#cancel_popup()"
+inoremap <expr><C-y>  deoplete#close_popup()
+inoremap <expr><C-e>  deoplete#cancel_popup()"
 
 " Enable omni completion.
+let g:deoplete#omni_patterns = {}
+let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
@@ -169,7 +195,7 @@ autocmd FileType python setlocal omnifunc=jedi#completions
     let g:jedi#completions_enabled = 0
     let g:jedi#auto_vim_configuration = 0
     let g:jedi#smart_auto_mappings = 0
-    let g:neocomplete#force_omni_input_patterns.python =
+    let g:deoplete#omni_patterns.python =
     \ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
     " alternative pattern: '\h\w*\|[^. \t]\.\w*'
 
@@ -197,25 +223,16 @@ inoremap <C-c> <CR><Esc>O
 " Adding in go lint
 set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
 
-" Silver Searching
-if executable('ag')
-    " Use ag over grep
-    set grepprg=ag\ --nogroup\ --nocolor
+" Fuzzy file finder
+nmap <Leader><Enter> :Buffers<CR>
+nmap <c-p> :Files<CR>
+nmap <Leader>p :Files<CR>
+nmap <Leader>r :Tags<CR>
+let g:fzf_action = {
+      \ 'ctrl-s': 'split',
+      \ 'ctrl-v': 'vsplit'
+      \ }
 
-    " use ag in ctrlP for listing files
-    " let g:ctrlp_user_command = 'ag %s -l --nocolor --nogroup -g ""'
-    let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden 
-		\ --ignore .git 
-        \ --ignore .svn 
-        \ --ignore .hg 
-        \ --ignore .DS_Store 
-        \ --ignore "**/*.pyc" -g ""'
-
-    " ag is fast enought that ctrlp does need caching
-    let g:ctrlp_use_caching = 0
-endif
-
-let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 
 set mouse=a
 

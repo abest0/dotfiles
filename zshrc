@@ -83,3 +83,5 @@ function install_jsctags {
     # https://github.com/mozilla/doctorjs/issues/52
     sed -i '51i tags: [],' ./node_modules/jsctags/ctags/index.js
 }
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
