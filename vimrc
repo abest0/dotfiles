@@ -19,6 +19,7 @@ Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
 
 Plug 'zchee/deoplete-go', {'for': 'go', 'do': 'make' }
+Plug 'buoto/gotests-vim'
 
 Plug 'christoomey/vim-tmux-navigator'
 
