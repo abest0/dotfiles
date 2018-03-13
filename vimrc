@@ -201,7 +201,6 @@ autocmd FileType python setlocal omnifunc=jedi#completions
 
 " Search for word under cursor
 nnoremap <Leader><S-F> :%s/\<<C-r><C-w>\>/
-nnoremap <Leader>f :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " remove the preview window on auto coompletion
 set completeopt-=preview
