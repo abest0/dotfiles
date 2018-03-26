@@ -4,3 +4,6 @@ export PATH=$PATH:$HOME/tools/arcanist/bin
 export GOPATH=$GOPATH:$HOME/code/branded/go
 export SPRING_IGNORE_GO_ADD_ON_COMMIT=True
 
+export PATH="/Users/abest/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
