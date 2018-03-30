@@ -31,6 +31,8 @@ Plug 'vim-syntastic/syntastic', { 'on': 'SyntasticCheck' }
 
 Plug 'itchyny/lightline.vim'
 
+Plug 'mgee/lightline-bufferline'
+
 Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'reedes/vim-pencil'
@@ -162,11 +164,71 @@ cnoreabbrev Ack Ack!
 nnoremap <Leader>f :Ack<Space>
 
 
-" lighline configs
+""" FOR STATUSLINE
+" set encoding=utf-8 " Necessary to show Unicode glyphs
+let g:Powerline_symbols = 'fancy'
+" set nocompatible   " Disable vi-compatibility
+" set t_Co=256
+" set fillchars+=stl:\ ,stlnc:\
+" set term=xterm-256color
+" set termencoding=utf-8
+
+
+" lightline configs
 set noshowmode
+set showtabline=2 " Show tabline
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
+      \ 'colorscheme': 'seoul256',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ],
+      \   'right': [ [ 'lineinfo' ],
+      \              [ 'percent' ],
+      \              [ 'filetype', 'fileformat', 'fileencoding'] ]
+      \ },
+      \ 'tabline': {
+      \ 'left': [ ['buffers'] ],
+      \ },
+      \ 'separator': { 'left': '⮀', 'right': '⮂' },
+      \ 'subseparator': { 'left': '', 'right': '' },
+      \ 'component': {
+      \   'lineinfo': '⭡ %3l:%-2v'
+      \ },
+      \ 'component_expand': {
+      \  'buffers': 'lightline#bufferline#buffers'
+      \ },
+      \ 'component_type': {
+      \   'buffers': 'tabsel'
+      \ },
+      \ 'component_function': {
+      \   'fugitive': 'LightlineFugitive'
       \ }
+      \ }
+
+
+function! LightlineFugitive()
+    if exists('*fugitive#head')
+        let branch = fugitive#head()
+		return branch !=# '' ? ' '.branch : ''
+    endif
+    return ''
+endfunction
+
+" lightline-bufferline
+let g:lightline#bufferline#show_number  = 2
+let g:lightline#bufferline#shorten_path = 0
+let g:lightline#bufferline#min_buffer_count = 2
+let g:lightline#bufferline#unnamed      = '[No Name]'
+nmap <Leader>1 <Plug>lightline#bufferline#go(1)
+nmap <Leader>2 <Plug>lightline#bufferline#go(2)
+nmap <Leader>3 <Plug>lightline#bufferline#go(3)
+nmap <Leader>4 <Plug>lightline#bufferline#go(4)
+nmap <Leader>5 <Plug>lightline#bufferline#go(5)
+nmap <Leader>6 <Plug>lightline#bufferline#go(6)
+nmap <Leader>7 <Plug>lightline#bufferline#go(7)
+nmap <Leader>8 <Plug>lightline#bufferline#go(8)
+nmap <Leader>9 <Plug>lightline#bufferline#go(9)
+nmap <Leader>0 <Plug>lightline#bufferline#go(10)
 
 " Use deomplete.
 let g:deoplete#enable_at_startup = 0
