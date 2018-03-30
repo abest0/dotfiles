@@ -19,6 +19,7 @@ Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
 
 Plug 'zchee/deoplete-go', {'for': 'go', 'do': 'make' }
+Plug 'zchee/deoplete-jedi'
 Plug 'buoto/gotests-vim'
 
 Plug 'christoomey/vim-tmux-navigator'
@@ -268,6 +269,10 @@ noremap <silent> <leader>SS <ESC>:SyntasticToggleMode<CR>
 noremap <silent> <leader>SC <ESC>:SyntasticCheck<CR>
 let delimitMate_expand_cr = 2
 let delimitMate_expand_space = 1
+
+
+let g:python_host_prog = '/Users/abest/.pyenv/versions/neovim2/bin/python'
+let g:python3_host_prog = '/Users/abest/.pyenv/versions/neovim3/bin/python'
 
 " set statusline+=%#warningmsg#
 " set statusline+=%{SyntasticStatuslineFlag()}
