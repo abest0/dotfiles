@@ -25,6 +25,7 @@ Plug 'buoto/gotests-vim'
 Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle'  }
+Plug 'vim-syntastic/syntastic', { 'on': 'SyntasticCheck' }
 
 Plug 'itchyny/lightline.vim'
 
@@ -38,7 +39,7 @@ Plug 'Raimondi/delimitMate'
 Plug 'fatih/vim-go', {'for': 'go'}
 Plug 'tomtom/tcomment_vim'
 Plug 'mattn/emmet-vim'
-Plug 'maksimr/vim-jsbeautify', {'for': 'javascript'}
+Plug 'maksimr/vim-jsbeautify'
 
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
@@ -192,13 +193,13 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-autocmd FileType python setlocal omnifunc=jedi#completions
-    let g:jedi#completions_enabled = 0
-    let g:jedi#auto_vim_configuration = 0
-    let g:jedi#smart_auto_mappings = 0
-    let g:deoplete#omni_patterns.python =
-    \ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
-    " alternative pattern: '\h\w*\|[^. \t]\.\w*'
+" autocmd FileType python setlocal omnifunc=jedi#completions
+"     let g:jedi#completions_enabled = 0
+"     let g:jedi#auto_vim_configuration = 0
+"     let g:jedi#smart_auto_mappings = 0
+"     let g:deoplete#omni_patterns.python =
+"     \ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
+"     " alternative pattern: '\h\w*\|[^. \t]\.\w*'
 
 " Search for word under cursor
 nnoremap <Leader><S-F> :%s/\<<C-r><C-w>\>/
