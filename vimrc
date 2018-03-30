@@ -22,6 +22,8 @@ Plug 'zchee/deoplete-go', {'for': 'go', 'do': 'make' }
 Plug 'zchee/deoplete-jedi'
 Plug 'buoto/gotests-vim'
 
+Plug 'davidhalter/jedi-vim'
+
 Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle'  }
@@ -193,13 +195,10 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-" autocmd FileType python setlocal omnifunc=jedi#completions
-"     let g:jedi#completions_enabled = 0
-"     let g:jedi#auto_vim_configuration = 0
-"     let g:jedi#smart_auto_mappings = 0
-"     let g:deoplete#omni_patterns.python =
-"     \ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
-"     " alternative pattern: '\h\w*\|[^. \t]\.\w*'
+
+
+" jedi-vim disabling jedi completions to make way for deoplete-jedi
+let g:jedi#completions_enabled = 0
 
 " Search for word under cursor
 nnoremap <Leader><S-F> :%s/\<<C-r><C-w>\>/
