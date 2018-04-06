@@ -24,6 +24,8 @@ Plug 'buoto/gotests-vim'
 
 Plug 'davidhalter/jedi-vim'
 
+Plug 'qpkorr/vim-bufkill'
+
 Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle'  }
