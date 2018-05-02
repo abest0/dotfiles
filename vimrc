@@ -22,6 +22,8 @@ Plug 'zchee/deoplete-go', {'for': 'go', 'do': 'make' }
 Plug 'zchee/deoplete-jedi'
 Plug 'buoto/gotests-vim'
 
+Plug 'martinda/Jenkinsfile-vim-syntax'
+
 Plug 'davidhalter/jedi-vim'
 
 Plug 'qpkorr/vim-bufkill'
