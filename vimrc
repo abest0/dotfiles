@@ -26,6 +26,8 @@ Plug 'martinda/Jenkinsfile-vim-syntax'
 
 Plug 'davidhalter/jedi-vim'
 
+Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
+
 Plug 'qpkorr/vim-bufkill'
 
 Plug 'christoomey/vim-tmux-navigator'
