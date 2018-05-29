@@ -55,6 +55,8 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
 
+Plug 'vim-latex/vim-latex'
+
 call plug#end()
 
 
@@ -353,3 +355,4 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_python_python_exec = 'python3'
 let g:syntastic_python_flake8_exec = 'python3'
 let g:syntastic_python_flake8_args = ['-m', 'flake8']
+let g:syntastic_tex_checkers = ['lacheck']
