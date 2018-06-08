@@ -55,6 +55,8 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
 
+Plug 'hashivim/vim-terraform'
+
 Plug 'vim-latex/vim-latex'
 
 call plug#end()
