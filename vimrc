@@ -95,6 +95,7 @@ nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 " adds mapping for NERDTreeFind
+let NERDTreeIgnore = ['\.pyc$']
 noremap <leader>w <Esc>:NERDTreeFind<CR>
 
 " don't beep
