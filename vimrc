@@ -28,8 +28,10 @@ Plug 'buoto/gotests-vim'
 
 Plug 'martinda/Jenkinsfile-vim-syntax'
 
+" python stuff
+Plug 'w0rp/ale'
+" Plug 'vim-syntastic/syntastic', { 'on': 'SyntasticCheck' }
 Plug 'davidhalter/jedi-vim'
-
 Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
 
 Plug 'qpkorr/vim-bufkill'
@@ -37,7 +39,6 @@ Plug 'qpkorr/vim-bufkill'
 Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle'  }
-Plug 'vim-syntastic/syntastic', { 'on': 'SyntasticCheck' }
 
 Plug 'itchyny/lightline.vim'
 
