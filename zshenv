@@ -6,6 +6,8 @@ export PATH=$PATH:$HOME/bin:$GOPATH/bin
 
 export EDITOR='vim'
 
+export FZF_DEFAULT_COMMAND='ag --nocolor -g ""'
+
 export VIRTUALENVWRAPPER_PYTHON='/usr/local/bin/python3'
 export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENVWRAPPER_SCRIPT=/usr/local/bin/virtualenvwrapper.sh
