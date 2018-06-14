@@ -14,6 +14,10 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-unimpaired'
 
+" Js plugins
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+
 Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
