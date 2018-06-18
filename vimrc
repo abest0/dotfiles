@@ -302,10 +302,11 @@ inoremap <C-c> <CR><Esc>O
 set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
 
 " Fuzzy file finder
-nmap <Leader><Enter> :Buffers<CR>
 nmap <c-p> :Files<CR>
 nmap <Leader>p :Files<CR>
 nmap <Leader>r :Tags<CR>
+nmap <Leader><Enter> :Buffers<CR>
+nmap <Leader>H :History<CR>
 let g:fzf_action = {
       \ 'ctrl-s': 'split',
       \ 'ctrl-v': 'vsplit'
