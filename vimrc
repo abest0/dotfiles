@@ -164,7 +164,7 @@ set pastetoggle=<F3>
 
 " spell checking
 nnoremap    <F4> :setlocal spell! spelllang=en_us<CR>
-nmap        <F8> :TagbarToggle<CR> " adds key for toggling the tagbar
+" nmap        <F8> :TagbarToggle<CR> " adds key for toggling the tagbar
 set showmode
 
 set nowrap
