@@ -344,8 +344,6 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 map <F11> :Goyo <CR>
 
 
-noremap <silent> <leader>SS <ESC>:SyntasticToggleMode<CR>
-noremap <silent> <leader>SC <ESC>:SyntasticCheck<CR>
 let delimitMate_expand_cr = 2
 let delimitMate_expand_space = 1
 
@@ -353,15 +351,7 @@ let delimitMate_expand_space = 1
 let g:python_host_prog = '/Users/abest/.pyenv/versions/neovim2/bin/python'
 let g:python3_host_prog = '/Users/abest/.pyenv/versions/neovim3/bin/python'
 
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_python_python_exec = 'python3'
-let g:syntastic_python_flake8_exec = 'python3'
-let g:syntastic_python_flake8_args = ['-m', 'flake8']
-let g:syntastic_tex_checkers = ['lacheck']
+noremap <silent> <leader>c <ESC>:ALEToggle<CR>
+let g:ale_sign_error = '●' " Less aggressive than the default '>>'
+let g:ale_sign_warning = '->'
+let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
