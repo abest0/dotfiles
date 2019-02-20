@@ -53,5 +53,3 @@
 	status = true
 	interactive = true
 	diff = true
-[rerere]
-	enabled = true
