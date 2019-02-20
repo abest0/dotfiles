@@ -1,10 +1,10 @@
 syntax on
 
 set background=dark
-colorscheme feral
 set number          " set the basic line number style
 set relativenumber 	" set the number style
 set cursorline      " highlight current line
+
 
 
 call plug#begin('~/.vim/plug')
@@ -14,13 +14,25 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-unimpaired'
 
+" the pretty
+Plug 'morhetz/gruvbox'
+
+
 " Js plugins
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern'  }
+Plug 'ternjs/tern_for_vim'
 
+" autocomplete
 Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
+
+" snippets
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
+Plug 'honza/vim-snippets'
 
 Plug 'zchee/deoplete-go', {'for': 'go', 'do': 'make' }
 Plug 'zchee/deoplete-jedi'
@@ -33,10 +45,11 @@ Plug 'w0rp/ale'
 " Plug 'vim-syntastic/syntastic', { 'on': 'SyntasticCheck' }
 Plug 'davidhalter/jedi-vim'
 Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
+Plug 'tweekmonster/django-plus.vim'
 
 Plug 'qpkorr/vim-bufkill'
 
-Plug 'christoomey/vim-tmux-navigator'
+" Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle'  }
 
@@ -44,11 +57,16 @@ Plug 'itchyny/lightline.vim'
 
 Plug 'mgee/lightline-bufferline'
 
-Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'reedes/vim-pencil'
 
 Plug 'mileszs/ack.vim'
+
+Plug 'nathanaelkane/vim-indent-guides'
+
+
+" CSV
+Plug 'chrisbra/csv.vim'
 
 Plug 'Raimondi/delimitMate'
 Plug 'fatih/vim-go', {'for': 'go'}
@@ -63,9 +81,13 @@ Plug 'junegunn/fzf.vim'
 Plug 'hashivim/vim-terraform'
 
 Plug 'vim-latex/vim-latex'
+Plug 'mhartington/oceanic-next'
 
 call plug#end()
 
+
+let g:gruvbox_contrast_dark='hard'
+colorscheme gruvbox
 
 highlight CursorLine term=NONE cterm=NONE ctermbg=236 guibg=#fa8cfa
 
@@ -254,25 +276,47 @@ let g:deoplete#enable_smart_case = 1
 inoremap <expr><C-g> deoplete#undo_completion()
 
 " <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
+" inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS>  deoplete#smart_close_popup()."\<C-h>"
 
 " <CR>: close popup and save indent.
-imap <expr> <CR> pumvisible() ? deoplete#close_popup() : "<Plug>delimitMateCR"
+" inoremap <expr><CR> pumvisible() ? deoplete#close_popup() : "<Plug>delimitMateCR"
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+    return deoplete#mappings#smart_close_popup() . "\<CR>"
+endfunction
 
 " <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><C-y>  deoplete#close_popup()
 inoremap <expr><C-e>  deoplete#cancel_popup()"
 
 " Enable omni completion.
 let g:deoplete#omni_patterns = {}
 let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
+" Enable Snippets
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+imap <C-o>     <Plug>(neosnippet_expand_or_jump)
+smap <C-o>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-o>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+imap <expr><TAB>
+\ pumvisible() ? "\<C-n>" :
+\ neosnippet#expandable_or_jumpable() ?
+\    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>
+let g:neosnippet#snippets_directory = '~/.vim/plug/vim-snippets/snippets'
+
+" autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+" autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+" autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+" autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+" autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 
 " jedi-vim disabling jedi completions to make way for deoplete-jedi
@@ -288,8 +332,8 @@ set completeopt-=preview
 vnoremap // y/<C-R>"<CR>
 
 " insert lines
-nmap <S-Enter> O<Esc>j
-nmap <CR> o<Esc>k
+" nmap <S-Enter> O<Esc>j
+" nmap <CR> o<Esc>k
 
 " copy & paste like a BAWSSSS!!
 vmap <C-x> :!pbcopy<CR>
@@ -343,6 +387,15 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 map <F11> :Goyo <CR>
 
+" Disable tmux navigator when zooming the Vim pane
+let g:tmux_navigator_disable_when_zoomed = 1
+let g:tmux_navigator_no_mappings = 1
+
+" nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
+" nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
+" nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
+" nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
+" nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
 
 let delimitMate_expand_cr = 2
 let delimitMate_expand_space = 1
@@ -355,3 +408,4 @@ noremap <silent> <leader>c <ESC>:ALEToggle<CR>
 let g:ale_sign_error = '●' " Less aggressive than the default '>>'
 let g:ale_sign_warning = '->'
 let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
+highlight ALEWarning ctermbg=DarkMagenta
