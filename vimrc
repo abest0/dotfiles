@@ -23,6 +23,9 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'ternjs/tern_for_vim'
 
+" coc
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install() }}
+
 " snippets
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
