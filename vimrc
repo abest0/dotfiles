@@ -21,11 +21,9 @@ Plug 'morhetz/gruvbox'
 " Js plugins
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern'  }
 Plug 'ternjs/tern_for_vim'
 
 " autocomplete
-Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
 
@@ -34,8 +32,6 @@ Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'honza/vim-snippets'
 
-Plug 'zchee/deoplete-go', {'for': 'go', 'do': 'make' }
-Plug 'zchee/deoplete-jedi'
 Plug 'buoto/gotests-vim'
 
 Plug 'martinda/Jenkinsfile-vim-syntax'
@@ -268,33 +264,6 @@ nmap <Leader>8 <Plug>lightline#bufferline#go(8)
 nmap <Leader>9 <Plug>lightline#bufferline#go(9)
 nmap <Leader>0 <Plug>lightline#bufferline#go(10)
 
-" Use deomplete.
-let g:deoplete#enable_at_startup = 0
-autocmd InsertEnter * call deoplete#enable()
-" Use smartcase.
-let g:deoplete#enable_smart_case = 1
-inoremap <expr><C-g> deoplete#undo_completion()
-
-" <C-h>, <BS>: close popup and delete backword char.
-" inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS>  deoplete#smart_close_popup()."\<C-h>"
-
-" <CR>: close popup and save indent.
-" inoremap <expr><CR> pumvisible() ? deoplete#close_popup() : "<Plug>delimitMateCR"
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-    return deoplete#mappings#smart_close_popup() . "\<CR>"
-endfunction
-
-" <TAB>: completion.
-" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><C-y>  deoplete#close_popup()
-inoremap <expr><C-e>  deoplete#cancel_popup()"
-
-" Enable omni completion.
-let g:deoplete#omni_patterns = {}
-let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
 
 " Enable Snippets
 " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
@@ -318,9 +287,6 @@ let g:neosnippet#snippets_directory = '~/.vim/plug/vim-snippets/snippets'
 " autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 " autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
-
-" jedi-vim disabling jedi completions to make way for deoplete-jedi
-let g:jedi#completions_enabled = 0
 
 " Search for word under cursor
 nnoremap <Leader><S-F> :%s/\<<C-r><C-w>\>/
