@@ -1,0 +1,127 @@
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.008  000.008: --- VIM STARTING ---
+000.117  000.109: Allocated generic buffers
+000.597  000.480: locale set
+000.603  000.006: clipboard setup
+000.611  000.008: window checked
+001.645  001.034: inits 1
+001.656  000.011: parsing arguments
+001.657  000.001: expanding arguments
+006.683  005.026: shell init
+007.077  000.394: Termcap init
+007.092  000.015: inits 2
+007.247  000.155: init highlight
+008.757  000.950  000.950: sourcing /usr/local/share/vim/vim81/syntax/syncolor.vim
+008.906  001.194  000.244: sourcing /usr/local/share/vim/vim81/syntax/synload.vim
+015.466  000.046  000.046: sourcing /Users/abest/.vim/ftdetect/groovy.vim
+015.578  006.574  006.528: sourcing /usr/local/share/vim/vim81/filetype.vim
+015.629  008.043  000.275: sourcing /usr/local/share/vim/vim81/syntax/syntax.vim
+016.003  000.198  000.198: sourcing /usr/local/share/vim/vim81/syntax/syncolor.vim
+017.764  001.670  001.670: sourcing /Users/abest/.vim/autoload/plug.vim
+023.166  001.724  001.724: sourcing /usr/local/share/vim/vim81/ftoff.vim
+024.027  000.069  000.069: sourcing /Users/abest/.vim/plug/vim-go/ftdetect/gofiletype.vim
+025.620  000.024  000.024: sourcing /Users/abest/.vim/plug/django-plus.vim/filetype.vim
+032.000  000.039  000.039: sourcing /Users/abest/.vim/ftdetect/groovy.vim
+032.145  000.027  000.027: sourcing /Users/abest/.vim/plug/vim-fugitive/ftdetect/fugitive.vim
+032.379  000.099  000.099: sourcing /Users/abest/.vim/plug/vim-javascript/ftdetect/javascript.vim
+032.546  000.069  000.069: sourcing /Users/abest/.vim/plug/vim-jsx/ftdetect/javascript.vim
+032.679  000.039  000.039: sourcing /Users/abest/.vim/plug/tern_for_vim/ftdetect/tern.vim
+032.798  000.026  000.026: sourcing /Users/abest/.vim/plug/neosnippet.vim/ftdetect/neosnippet.vim
+032.958  000.043  000.043: sourcing /Users/abest/.vim/plug/Jenkinsfile-vim-syntax/ftdetect/Jenkinsfile.vim
+033.161  000.033  000.033: sourcing /Users/abest/.vim/plug/csv.vim/ftdetect/csv.vim
+033.350  000.043  000.043: sourcing /Users/abest/.vim/plug/vim-terraform/ftdetect/terraform.vim
+033.540  007.766  007.348: sourcing /usr/local/share/vim/vim81/filetype.vim
+033.934  000.054  000.054: sourcing /usr/local/share/vim/vim81/ftplugin.vim
+034.302  000.043  000.043: sourcing /usr/local/share/vim/vim81/indent.vim
+035.151  000.193  000.193: sourcing /usr/local/share/vim/vim81/syntax/syncolor.vim
+035.762  000.181  000.181: sourcing /usr/local/share/vim/vim81/syntax/syncolor.vim
+041.661  007.179  006.805: sourcing /Users/abest/.vim/plug/gruvbox/colors/gruvbox.vim
+041.929  000.019  000.019: sourcing /Users/abest/.vim/plug/django-plus.vim/filetype.vim
+042.118  000.036  000.036: sourcing /usr/local/share/vim/vim81/filetype.vim
+042.408  000.031  000.031: sourcing /Users/abest/.vim/plug/django-plus.vim/filetype.vim
+042.617  000.056  000.056: sourcing /usr/local/share/vim/vim81/filetype.vim
+042.946  000.016  000.016: sourcing /usr/local/share/vim/vim81/ftplugin.vim
+043.267  000.015  000.015: sourcing /usr/local/share/vim/vim81/indent.vim
+043.907  036.426  009.483: sourcing $HOME/.vimrc
+043.915  000.242: sourcing vimrc file(s)
+044.739  000.588  000.588: sourcing /Users/abest/.vim/plugin/taglist.vim
+044.813  000.033  000.033: sourcing /Users/abest/.vim/plugin/yapf.vim
+045.141  000.022  000.022: sourcing /Users/abest/.vim/plug/django-plus.vim/filetype.vim
+045.331  000.040  000.040: sourcing /usr/local/share/vim/vim81/filetype.vim
+045.667  000.016  000.016: sourcing /usr/local/share/vim/vim81/ftplugin.vim
+045.991  000.015  000.015: sourcing /usr/local/share/vim/vim81/indent.vim
+048.998  000.260  000.260: sourcing /usr/local/Cellar/vim/8.1.1150/share/vim/vim81/pack/dist/opt/matchit/plugin/matchit.vim
+049.047  001.278  001.018: sourcing /usr/local/share/vim/vim81/macros/matchit.vim
+049.126  004.183  002.812: sourcing /Users/abest/.vim/plug/vim-sensible/plugin/sensible.vim
+049.557  000.311  000.311: sourcing /Users/abest/.vim/plug/vim-fugitive/plugin/fugitive.vim
+050.184  000.496  000.496: sourcing /Users/abest/.vim/plug/vim-surround/plugin/surround.vim
+050.487  000.174  000.174: sourcing /Users/abest/.vim/plug/vim-rhubarb/plugin/rhubarb.vim
+062.748  012.137  012.137: sourcing /Users/abest/.vim/plug/vim-unimpaired/plugin/unimpaired.vim
+063.159  000.201  000.201: sourcing /Users/abest/.vim/plug/neosnippet.vim/plugin/neosnippet.vim
+063.340  000.043  000.043: sourcing /Users/abest/.vim/plug/vim-snippets/plugin/vimsnippets.vim
+063.538  000.081  000.081: sourcing /Users/abest/.vim/plug/gotests-vim/plugin/vim-gotests.vim
+064.585  000.140  000.140: sourcing /Users/abest/.vim/plug/ale/autoload/ale/events.vim
+064.763  001.088  000.948: sourcing /Users/abest/.vim/plug/ale/plugin/ale.vim
+065.091  000.023  000.023: sourcing /Users/abest/.vim/plug/django-plus.vim/filetype.vim
+065.375  000.039  000.039: sourcing /usr/local/share/vim/vim81/filetype.vim
+065.734  000.018  000.018: sourcing /usr/local/share/vim/vim81/ftplugin.vim
+065.915  001.022  000.942: sourcing /Users/abest/.vim/plug/jedi-vim/plugin/jedi.vim
+067.202  001.145  001.145: sourcing /Users/abest/.vim/plug/vim-bufkill/plugin/bufkill.vim
+067.432  000.101  000.101: sourcing /Users/abest/.vim/plug/lightline.vim/plugin/lightline.vim
+068.067  000.295  000.295: sourcing /Users/abest/.vim/plug/lightline-bufferline/autoload/lightline/bufferline.vim
+068.123  000.571  000.276: sourcing /Users/abest/.vim/plug/lightline-bufferline/plugin/bufferline.vim
+068.480  000.235  000.235: sourcing /Users/abest/.vim/plug/vim-pencil/plugin/pencil.vim
+068.756  000.157  000.157: sourcing /Users/abest/.vim/plug/ack.vim/plugin/ack.vim
+069.292  000.179  000.179: sourcing /Users/abest/.vim/plug/vim-indent-guides/autoload/indent_guides.vim
+069.679  000.803  000.624: sourcing /Users/abest/.vim/plug/vim-indent-guides/plugin/indent_guides.vim
+070.064  000.210  000.210: sourcing /Users/abest/.vim/plug/csv.vim/plugin/csv.vim
+071.144  000.383  000.383: sourcing /Users/abest/.vim/plug/delimitMate/autoload/delimitMate.vim
+073.663  003.479  003.096: sourcing /Users/abest/.vim/plug/delimitMate/plugin/delimitMate.vim
+074.122  000.052  000.052: sourcing /Users/abest/.vim/plug/tcomment_vim/autoload/tcomment/deprecated.vim
+077.782  003.988  003.936: sourcing /Users/abest/.vim/plug/tcomment_vim/plugin/tcomment.vim
+080.695  002.756  002.756: sourcing /Users/abest/.vim/plug/emmet-vim/plugin/emmet.vim
+087.653  002.418  002.418: sourcing /Users/abest/.vim/plug/vim-jsbeautify/plugin/beautifier.vim
+087.821  000.039  000.039: sourcing /Users/abest/.vim/plug/goyo.vim/plugin/goyo.vim
+088.794  000.864  000.864: sourcing /Users/abest/.fzf/plugin/fzf.vim
+089.832  000.911  000.911: sourcing /Users/abest/.vim/plug/fzf.vim/plugin/fzf.vim
+090.268  000.186  000.186: sourcing /Users/abest/.vim/plug/vim-latex/plugin/filebrowser.vim
+090.916  000.609  000.609: sourcing /Users/abest/.vim/plug/vim-latex/plugin/imaps.vim
+091.074  000.116  000.116: sourcing /Users/abest/.vim/plug/vim-latex/plugin/remoteOpen.vim
+091.299  000.188  000.188: sourcing /Users/abest/.vim/plug/vim-latex/plugin/SyntaxFolds.vim
+091.914  000.070  000.070: sourcing /usr/local/share/vim/vim81/plugin/getscriptPlugin.vim
+092.168  000.216  000.216: sourcing /usr/local/share/vim/vim81/plugin/gzip.vim
+092.449  000.242  000.242: sourcing /usr/local/share/vim/vim81/plugin/logiPat.vim
+092.527  000.040  000.040: sourcing /usr/local/share/vim/vim81/plugin/manpager.vim
+092.753  000.191  000.191: sourcing /usr/local/share/vim/vim81/plugin/matchparen.vim
+093.389  000.597  000.597: sourcing /usr/local/share/vim/vim81/plugin/netrwPlugin.vim
+093.467  000.029  000.029: sourcing /usr/local/share/vim/vim81/plugin/rrhelper.vim
+093.561  000.040  000.040: sourcing /usr/local/share/vim/vim81/plugin/spellfile.vim
+093.784  000.180  000.180: sourcing /usr/local/share/vim/vim81/plugin/tarPlugin.vim
+093.934  000.105  000.105: sourcing /usr/local/share/vim/vim81/plugin/tohtml.vim
+094.154  000.177  000.177: sourcing /usr/local/share/vim/vim81/plugin/vimballPlugin.vim
+094.406  000.197  000.197: sourcing /usr/local/share/vim/vim81/plugin/zipPlugin.vim
+094.434  009.302: loading plugins
+094.506  000.072: loading packages
+094.649  000.143: loading after plugins
+094.655  000.006: inits 3
+095.299  000.644: reading viminfo
+095.345  000.046: setting raw mode
+095.354  000.009: start termcap
+095.375  000.021: clearing screen
+096.371  000.663  000.663: sourcing /Users/abest/.vim/plug/lightline.vim/autoload/lightline.vim
+097.166  000.067  000.067: sourcing /Users/abest/.vim/plug/lightline.vim/autoload/lightline/tab.vim
+098.114  000.248  000.248: sourcing /Users/abest/.vim/plug/lightline.vim/autoload/lightline/colorscheme.vim
+098.759  001.221  000.973: sourcing /Users/abest/.vim/plug/lightline.vim/autoload/lightline/colorscheme/seoul256.vim
+102.333  005.007: opening buffers
+106.373  004.040: BufEnter autocommands
+106.376  000.003: editing files in windows
+111.989  005.203  005.203: sourcing /Users/abest/.vim/plug/vim-fugitive/autoload/fugitive.vim
+113.145  001.566: VimEnter autocommands
+113.148  000.003: before starting main loop
+117.828  004.680: first screen update
+117.830  000.002: --- VIM STARTED ---
