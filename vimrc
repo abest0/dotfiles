@@ -24,7 +24,7 @@ Plug 'mxw/vim-jsx'
 Plug 'ternjs/tern_for_vim'
 
 " coc
-Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install() }}
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
 
 " snippets
 Plug 'Shougo/neosnippet.vim'
