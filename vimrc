@@ -235,9 +235,18 @@ endfunction
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 
+function! CROverride()
+    if delimitMate#WithinEmptyPair()
+        return "\<C-R>=delimitMate#ExpandReturn()\<CR>"
+        echom "Gooba"
+    endif
+
+    return "\<C-g>u\<CR>"
+endfunction
+
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
 " Coc only does snippet and additional edit on confirm.
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr><silent> <cr> pumvisible() ? "\<C-y>" : "\<C-R>=CROverride()\<CR>"
 
 " Use `[c` and `]c` to navigate diagnostics
 nmap <silent> [c <Plug>(coc-diagnostic-prev)
@@ -419,8 +428,9 @@ let g:tmux_navigator_no_mappings = 1
 " nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
 " nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
 
-let delimitMate_expand_cr = 2
 let delimitMate_expand_space = 1
+let delimitMate_expand_cr = 2
+let delimitMate_backspace = 2
 
 
 let g:python_host_prog = '/Users/abest/.pyenv/versions/neovim2/bin/python'
