@@ -22,7 +22,7 @@ Plug 'pearofducks/ansible-vim'
 " Js plugins
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
-Plug 'ternjs/tern_for_vim'
+" Plug 'ternjs/tern_for_vim'
 
 " coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
