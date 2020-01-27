@@ -40,7 +40,8 @@
     brhist = for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
     remotebrhist = for-each-ref --sort=committerdate refs/remotes/ --no-merged master --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
 [merge]
-	tool = extMerge.sh
+#	tool = extMerge.sh
+	tool = vimdiff
     trustExitCode = true
 	keepBackup = false
 	keepTemporaries = false
@@ -53,3 +54,7 @@
 	status = true
 	interactive = true
 	diff = true
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
