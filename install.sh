@@ -2,7 +2,7 @@
 
 dotfiles="$HOME/dotfiles"
 backup="$HOME/backup_dotfiles"
-files=( ctags zshrc zshenv vimrc vim tmux.conf gitconfig psqlrc )
+files=( ctags zshrc zshenv vimrc vim tmux.conf gitconfig psqlrc p10k.zsh)
 
 
 backup() {
