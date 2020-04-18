@@ -1,6 +1,6 @@
 [submodule "vim"]
 	path = vim
 	url = ../vim.git
-[submodule "/Users/bestadam/dotfiles/zsh_custom/themes/powerlevel10k"]
+[submodule "zsh_custom/themes/powerlevel10k"]
 	path = zsh_custom/themes/powerlevel10k
 	url = https://github.com/romkatv/powerlevel10k.git
