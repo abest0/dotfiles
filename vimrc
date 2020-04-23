@@ -386,6 +386,8 @@ nmap <leader>p :Files<CR>
 nmap <leader>r :Tags<CR>
 nmap <leader><Enter> :Buffers<CR>
 nmap <leader>H :History<CR>
+nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
+
 let g:fzf_action = {
       \ 'ctrl-s': 'split',
       \ 'ctrl-v': 'vsplit'
