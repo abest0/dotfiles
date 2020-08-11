@@ -2,5 +2,5 @@
 	path = vim
 	url = ../vim.git
 [submodule "powerleve10k"]
-	path = /home/dev/dotfiles/zsh_custom/themes/powerlevel10k
+	path = zsh_custom/themes/powerlevel10k
 	url = https://github.com/romkatv/powerlevel10k.git
