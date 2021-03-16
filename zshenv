@@ -2,7 +2,7 @@
 export ZSH=$HOME/.oh-my-zsh
 
 export GOPATH=$HOME/go
-export PATH=$PATH:$HOME/bin:$GOPATH/bin
+export PATH=$HOME/.local/bin:$PATH:$HOME/bin:$GOPATH/bin
 
 export NVM_DIR="$HOME/.nvm"
 
