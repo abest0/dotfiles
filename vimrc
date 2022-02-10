@@ -1,4 +1,5 @@
 syntax on
+set re=0
 
 set background=dark
 set number          " set the basic line number style
@@ -20,7 +21,8 @@ Plug 'pearofducks/ansible-vim'
 
 
 " Js plugins
-Plug 'pangloss/vim-javascript'
+Plug 'pangloss/vim-javascript' " JavaScript syntax"
+Plug 'leafgarland/typescript-vim' " TypeScript syntax"
 Plug 'mxw/vim-jsx'
 " Plug 'ternjs/tern_for_vim'
 
@@ -59,6 +61,9 @@ Plug 'reedes/vim-pencil'
 Plug 'mileszs/ack.vim'
 
 Plug 'nathanaelkane/vim-indent-guides'
+
+" documentation
+Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
 
 
 " CSV

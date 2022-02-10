@@ -48,7 +48,7 @@ setopt histignorealldups sharehistory
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # plugins=(git rails ruby brew)
-plugins=(git aws history-substring-search golang docker vi-mode)
+plugins=(git aws history-substring-search golang docker vi-mode nvm)
 # plugins=(git brew osx aws history-substring-search gradle go docker vi-mode)
 
 bindkey -M viins 'jj' vi-cmd-mode
