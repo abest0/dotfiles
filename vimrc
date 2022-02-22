@@ -68,6 +68,9 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
 
 
+" PlatformIO
+Plug 'normen/vim-pio'
+
 " CSV
 Plug 'chrisbra/csv.vim'
 
