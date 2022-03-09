@@ -39,6 +39,9 @@
     ignored = !git ls-files -v | grep ^[[:lower:]]""
     brhist = for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
     remotebrhist = for-each-ref --sort=committerdate refs/remotes/ --no-merged master --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
+  hide = update-index --assume-unchanged
+  unhide = update-index --no-assume-unchanged
+  hidden = ! git ls-files -v | grep '^[a-z]' | cut -c3-
 [merge]
 #	tool = extMerge.sh
 	tool = vimdiff
