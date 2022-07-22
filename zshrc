@@ -63,6 +63,9 @@ colors
 
 alias dc=docker-compose
 alias dm=docker-machine
+
+alias pj='npx projen'
+alias pt='poetry'
 #eval "$(direnv hook zsh)"
 #
 
