@@ -331,9 +331,9 @@ let g:lightline = {
 
 
 function! LightlineFugitive()
-    if exists('*fugitive#head')
-        let branch = fugitive#head()
-		return branch !=# '' ? ' '.branch : ''
+    if exists('*FugitiveHead')
+        let branch = FugitiveHead()
+        return branch !=# '' ? ' '.branch : ''
     endif
     return ''
 endfunction
