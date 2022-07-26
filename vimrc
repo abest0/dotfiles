@@ -286,7 +286,7 @@ nmap <leader>rn <Plug>(coc-rename)
 
 " Remap for format selected region
 vmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format)
 
 """ FOR STATUSLINE
 " set encoding=utf-8 " Necessary to show Unicode glyphs
