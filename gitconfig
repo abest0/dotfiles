@@ -63,3 +63,7 @@
 	prompt = false
 [init]
 	defaultBranch = main
+[mergetool]
+	conflictstyle = diff3
+[mergetool "vimdiff"]
+	cmd = vim +\"set number\" +\"setlocal statusline=LOCAL\" +\"vs $BASE\" +\"setlocal statusline=BASE\" +\"vs $REMOTE\" +\"setlocal statusline=REMOTE\" +\"vs $MERGED\" +\"wincmd J\" +\"windo diffthis\" $LOCAL

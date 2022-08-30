@@ -15,15 +15,15 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-unimpaired'
 
-" the pretty
-Plug 'morhetz/gruvbox'
 Plug 'pearofducks/ansible-vim'
 
 
 " Js plugins
-Plug 'pangloss/vim-javascript' " JavaScript syntax"
-Plug 'leafgarland/typescript-vim' " TypeScript syntax"
-Plug 'mxw/vim-jsx'
+" Plug 'pangloss/vim-javascript' " JavaScript syntax"
+" Plug 'leafgarland/typescript-vim' " TypeScript syntax"
+" Plug 'mxw/vim-jsx'
+" Plug 'HerringtonDarkholme/yats.vim'
+
 " Plug 'ternjs/tern_for_vim'
 
 " coc
@@ -84,13 +84,27 @@ Plug 'hashivim/vim-terraform'
 Plug 'vim-latex/vim-latex'
 Plug 'mhartington/oceanic-next'
 
+
+" the pretty
+Plug 'morhetz/gruvbox'
+Plug 'arcticicestudio/nord-vim', { 'branch': 'develop'  }
+
 call plug#end()
 
 
-let g:gruvbox_contrast_dark='hard'
-colorscheme gruvbox
+"============================== 
+" Nord Settings
+"============================== 
+let g:nord_cursor_line_number_background = 1
+let g:nord_bold_vertical_split_line = 1
+let g:nord_uniform_diff_background = 1
+let g:nord_uniform_status_lines = 1
 
-highlight CursorLine term=NONE cterm=NONE ctermbg=236 guibg=#fa8cfa
+" let g:gruvbox_contrast_dark='hard'
+" colorscheme gruvbox
+colorscheme nord
+
+" highlight CursorLine term=NONE cterm=NONE ctermbg=236 guibg=#
 
 augroup CursorLine
     au!
@@ -202,6 +216,8 @@ endif
 cnoreabbrev Ack Ack!
 nnoremap <leader>f :Ack<Space>
 
+
+
 "============================== 
 " COC.NVIM settings
 "============================== 
@@ -217,11 +233,26 @@ set nowritebackup
 "       \ coc#refresh()
 " inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
+"inoremap <silent><expr> <TAB>
+"     \ pumvisible() ? coc#_select_confirm() :
+"     \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+"     \ <SID>check_back_space() ? "\<TAB>" :
+"       \ coc#refresh()
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+"inoremap <expr><silent> <cr> pumvisible() ? "\<C-y>" : "\<C-R>=CROverride()\<CR>"
+
+
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <silent><expr> <C-x><C-z> coc#pum#visible() ? coc#pum#stop() : "\<C-x>\<C-z>"
+" remap for complete to use tab and <cr>
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? coc#_select_confirm() :
-      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#pum#visible() ? coc#pum#next(1):
+      \ <SID>check_back_space() ? "\<Tab>" :
       \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
 
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -249,9 +280,6 @@ function! CROverride()
     return "\<C-g>u\<CR>"
 endfunction
 
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
-" Coc only does snippet and additional edit on confirm.
-inoremap <expr><silent> <cr> pumvisible() ? "\<C-y>" : "\<C-R>=CROverride()\<CR>"
 
 " Use `[c` and `]c` to navigate diagnostics
 if &diff
@@ -302,7 +330,7 @@ let g:Powerline_symbols = 'fancy'
 set noshowmode
 set showtabline=2 " Show tabline
 let g:lightline = {
-      \ 'colorscheme': 'seoul256',
+      \ 'colorscheme': 'nord',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'cocstatus', 'fugitive', 'readonly', 'filename', 'modified' ] ],
