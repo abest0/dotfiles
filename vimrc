@@ -22,7 +22,9 @@ Plug 'pearofducks/ansible-vim'
 " Plug 'pangloss/vim-javascript' " JavaScript syntax"
 " Plug 'leafgarland/typescript-vim' " TypeScript syntax"
 " Plug 'mxw/vim-jsx'
-" Plug 'HerringtonDarkholme/yats.vim'
+Plug 'yuezk/vim-js'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'HerringtonDarkholme/yats.vim'
 
 " Plug 'ternjs/tern_for_vim'
 
@@ -252,6 +254,10 @@ inoremap <silent><expr> <TAB>
       \ <SID>check_back_space() ? "\<Tab>" :
       \ coc#refresh()
 inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+hi CocSearch ctermfg=12 guifg=#18A3FF
+hi CocMenuSel ctermbg=109 guibg=#13354A
+
 
 
 function! s:check_back_space() abort
