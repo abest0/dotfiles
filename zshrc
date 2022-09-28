@@ -19,6 +19,7 @@ export ZSH_THEME="powerlevel10k/powerlevel10k"
 alias ll='ls -l'
 alias la='ls -a'
 alias cls='clear'
+alias is='isengardcli'
 # alias g='git'
 #
 
@@ -110,8 +111,10 @@ autoload -U add-zsh-hook
 [[ -f /Users/abest/.nvm/versions/node/v8.11.2/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/abest/.nvm/versions/node/v8.11.2/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="$(brew --prefix)/opt/findutils/libexec/gnubin:$PATH"
+export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export PATH="$HOME/.poetry/bin:$PATH"
+export PATH="/usr/local/opt/llvm/bin:$PATH"
