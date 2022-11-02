@@ -463,7 +463,7 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 map <F11> :Goyo <CR>
 
-let g:coc_global_extension = [
+let g:coc_global_extensions = [
       \ 'coc-pyright',
       \ 'coc-tsserver',
       \ 'coc-yaml',
@@ -488,9 +488,6 @@ let delimitMate_expand_space = 1
 let delimitMate_expand_cr = 2
 let delimitMate_backspace = 2
 
-
-let g:python_host_prog = '/Users/abest/.pyenv/versions/neovim2/bin/python'
-let g:python3_host_prog = '/Users/abest/.pyenv/versions/neovim3/bin/python'
 
 noremap <silent> <leader>c <ESC>:ALEToggle<CR>
 let g:ale_sign_error = '●' " Less aggressive than the default '>>'
