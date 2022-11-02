@@ -464,15 +464,15 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 map <F11> :Goyo <CR>
 
 let g:coc_global_extension = [
-  'coc-pyright',
-  'coc-tsserver',
-  'coc-yaml',
-  'coc-json',
-  'coc-snippets',
-  'coc-prettier',
-  'coc-html',
-  'coc-css'
-]
+      \ 'coc-pyright',
+      \ 'coc-tsserver',
+      \ 'coc-yaml',
+      \ 'coc-json',
+      \ 'coc-snippets',
+      \ 'coc-prettier',
+      \ 'coc-html',
+      \ 'coc-css'
+      \ ]
 
 " Disable tmux navigator when zooming the Vim pane
 let g:tmux_navigator_disable_when_zoomed = 1
