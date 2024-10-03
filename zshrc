@@ -110,7 +110,7 @@ autoload -U add-zsh-hook
 # uninstall by removing these lines or running `tabtab uninstall sls`
 [[ -f /Users/abest/.nvm/versions/node/v8.11.2/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/abest/.nvm/versions/node/v8.11.2/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-export PATH="$(brew --prefix)/opt/findutils/libexec/gnubin:$PATH"
+# export PATH="$(brew --prefix)/opt/findutils/libexec/gnubin:$PATH"
 export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
