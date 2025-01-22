@@ -44,7 +44,6 @@ Plug 'honza/vim-snippets'
 " Plug 'w0rp/ale'
 " Plug 'vim-syntastic/syntastic', { 'on': 'SyntasticCheck' }
 " Plug 'davidhalter/jedi-vim'
-" Plug 'tweekmonster/django-plus.vim'
 
 Plug 'qpkorr/vim-bufkill'
 
@@ -98,6 +97,8 @@ Plug 'junegunn/fzf.vim'
 " endif
 "
 
+* RUST
+Plug 'rust-lang/rust.vim'
 
 " the pretty
 " Plug 'morhetz/gruvbox'
@@ -483,7 +484,8 @@ let g:coc_global_extensions = [
       \ 'coc-snippets',
       \ 'coc-prettier',
       \ 'coc-html',
-      \ 'coc-css'
+      \ 'coc-css',
+      \ 'coc-rls'
       \ ]
 
 " Disable tmux navigator when zooming the Vim pane
