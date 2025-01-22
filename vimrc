@@ -44,7 +44,7 @@ Plug 'martinda/Jenkinsfile-vim-syntax'
 " Plug 'w0rp/ale'
 " Plug 'vim-syntastic/syntastic', { 'on': 'SyntasticCheck' }
 " Plug 'davidhalter/jedi-vim'
-Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
+" Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
 Plug 'tweekmonster/django-plus.vim'
 
 Plug 'qpkorr/vim-bufkill'
@@ -89,6 +89,8 @@ Plug 'hashivim/vim-terraform'
 Plug 'vim-latex/vim-latex'
 Plug 'mhartington/oceanic-next'
 
+* RUST
+Plug 'rust-lang/rust.vim'
 
 " the pretty
 Plug 'morhetz/gruvbox'
@@ -474,7 +476,8 @@ let g:coc_global_extensions = [
       \ 'coc-snippets',
       \ 'coc-prettier',
       \ 'coc-html',
-      \ 'coc-css'
+      \ 'coc-css',
+      \ 'coc-rls'
       \ ]
 
 " Disable tmux navigator when zooming the Vim pane
