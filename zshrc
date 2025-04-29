@@ -1,3 +1,5 @@
+# Amazon Q pre block. Keep at the top of this file.
+[[ -f "${HOME}/.local/share/amazon-q/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/.local/share/amazon-q/shell/zshrc.pre.zsh"
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -56,7 +58,7 @@ setopt histignorealldups sharehistory
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # plugins=(git rails ruby brew)
-plugins=(git aws history-substring-search golang docker vi-mode nvm)
+plugins=(git aws history-substring-search golang docker vi-mode nvm )
 # plugins=(git brew osx aws history-substring-search gradle go docker vi-mode)
 
 bindkey -M viins 'jj' vi-cmd-mode
@@ -72,8 +74,9 @@ colors
 alias dc=docker-compose
 alias dm=docker-machine
 
-alias pj='npx projen'
+alias pj='pnpm exec projen'
 alias pt='poetry'
+alias pn='pnpm nx'
 #eval "$(direnv hook zsh)"
 #
 
@@ -118,3 +121,16 @@ export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 
 export PATH="$HOME/.poetry/bin:$PATH"
 export PATH="/usr/local/opt/llvm/bin:$PATH"
+
+# pnpm
+export PNPM_HOME="/home/dev/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+# eval "$(/home/dev/.local/bin/mise activate zsh)"
+eval "$(direnv hook zsh)"
+
+# Amazon Q post block. Keep at the bottom of this file.
+[[ -f "${HOME}/.local/share/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/.local/share/amazon-q/shell/zshrc.post.zsh"
