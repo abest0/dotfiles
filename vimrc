@@ -89,7 +89,7 @@ Plug 'hashivim/vim-terraform'
 Plug 'vim-latex/vim-latex'
 Plug 'mhartington/oceanic-next'
 
-* RUST
+" RUST
 Plug 'rust-lang/rust.vim'
 
 " the pretty
