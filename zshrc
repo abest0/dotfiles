@@ -56,7 +56,7 @@ setopt histignorealldups sharehistory
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # plugins=(git rails ruby brew)
-plugins=(git aws history-substring-search golang docker vi-mode nvm)
+plugins=(git aws history-substring-search golang docker vi-mode nvm )
 # plugins=(git brew osx aws history-substring-search gradle go docker vi-mode)
 
 bindkey -M viins 'jj' vi-cmd-mode
@@ -74,6 +74,7 @@ alias dm=docker-machine
 
 alias pj='pnpm exec projen'
 alias pt='poetry'
+alias pn='pnpm nx'
 #eval "$(direnv hook zsh)"
 #
 

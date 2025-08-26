@@ -24,7 +24,7 @@ Plug 'pearofducks/ansible-vim'
 " Plug 'mxw/vim-jsx'
 Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
-Plug 'HerringtonDarkholme/yats.vim'
+" Plug 'HerringtonDarkholme/yats.vim'
 
 " Plug 'ternjs/tern_for_vim'
 
@@ -36,16 +36,14 @@ Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'honza/vim-snippets'
 
-Plug 'buoto/gotests-vim'
+" Plug 'buoto/gotests-vim'
 
-Plug 'martinda/Jenkinsfile-vim-syntax'
+" Plug 'martinda/Jenkinsfile-vim-syntax'
 
 " python stuff
 " Plug 'w0rp/ale'
 " Plug 'vim-syntastic/syntastic', { 'on': 'SyntasticCheck' }
 " Plug 'davidhalter/jedi-vim'
-" Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
-Plug 'tweekmonster/django-plus.vim'
 
 Plug 'qpkorr/vim-bufkill'
 
@@ -58,18 +56,18 @@ Plug 'itchyny/lightline.vim'
 Plug 'mgee/lightline-bufferline'
 
 
-Plug 'reedes/vim-pencil'
+" Plug 'reedes/vim-pencil'
 
 Plug 'mileszs/ack.vim'
 
-Plug 'nathanaelkane/vim-indent-guides'
+" Plug 'nathanaelkane/vim-indent-guides'
 
 " documentation
 Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
 
 
 " PlatformIO
-Plug 'normen/vim-pio'
+" Plug 'normen/vim-pio'
 
 " CSV
 Plug 'chrisbra/csv.vim'
@@ -78,22 +76,34 @@ Plug 'Raimondi/delimitMate'
 Plug 'fatih/vim-go', {'for': 'go'}
 Plug 'tomtom/tcomment_vim'
 Plug 'mattn/emmet-vim'
-Plug 'maksimr/vim-jsbeautify'
+" Plug 'maksimr/vim-jsbeautify'
 
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
 
-Plug 'hashivim/vim-terraform'
+" Plug 'hashivim/vim-terraform'
 
-Plug 'vim-latex/vim-latex'
-Plug 'mhartington/oceanic-next'
+" Plug 'vim-latex/vim-latex'
+" Plug 'mhartington/oceanic-next'
 
 " RUST
 Plug 'rust-lang/rust.vim'
 
+" Plug 'nvim-lua/plenary.nvim'
+" Plug 'nvim-telescope/telescope.nvim'
+"
+" Plug 'prabirshrestha/vim-lsp'
+" if !has('nvim')
+"       Plug 'rhysd/vim-healthcheck'
+" endif
+"
+
+* RUST
+Plug 'rust-lang/rust.vim'
+
 " the pretty
-Plug 'morhetz/gruvbox'
+" Plug 'morhetz/gruvbox'
 Plug 'arcticicestudio/nord-vim', { 'branch': 'main'  }
 
 call plug#end()
@@ -484,11 +494,23 @@ let g:coc_global_extensions = [
 let g:tmux_navigator_disable_when_zoomed = 1
 let g:tmux_navigator_no_mappings = 1
 
-" nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
-" nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
-" nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
-" nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
-" nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
+if executable('ruff')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'ruff',
+        \ 'cmd': {server_info->['ruff', 'server']},
+        \ 'allowlist': ['python'],
+        \ 'workspace_config': {},
+        \ })
+endif
+
+function! s:on_lsp_buffer_enabled() abort
+    " add your keybindings here (see https://github.com/prabirshrestha/vim-lsp?tab=readme-ov-file#registering-servers)
+
+    let l:capabilities = lsp#get_server_capabilities('ruff')
+    if !empty(l:capabilities)
+      let l:capabilities.hoverProvider = v:false
+    endif
+endfunction
 
 let delimitMate_expand_space = 1
 let delimitMate_expand_cr = 2
