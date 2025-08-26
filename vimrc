@@ -99,21 +99,6 @@ Plug 'rust-lang/rust.vim'
 " endif
 "
 
-* RUST
-Plug 'rust-lang/rust.vim'
-
-" Plug 'nvim-lua/plenary.nvim'
-" Plug 'nvim-telescope/telescope.nvim'
-"
-" Plug 'prabirshrestha/vim-lsp'
-" if !has('nvim')
-"       Plug 'rhysd/vim-healthcheck'
-" endif
-"
-
-* RUST
-Plug 'rust-lang/rust.vim'
-
 " the pretty
 " Plug 'morhetz/gruvbox'
 Plug 'arcticicestudio/nord-vim', { 'branch': 'main'  }
