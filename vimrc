@@ -87,6 +87,20 @@ Plug 'junegunn/fzf.vim'
 " Plug 'vim-latex/vim-latex'
 " Plug 'mhartington/oceanic-next'
 
+" RUST
+Plug 'rust-lang/rust.vim'
+
+" Plug 'nvim-lua/plenary.nvim'
+" Plug 'nvim-telescope/telescope.nvim'
+"
+" Plug 'prabirshrestha/vim-lsp'
+" if !has('nvim')
+"       Plug 'rhysd/vim-healthcheck'
+" endif
+"
+
+* RUST
+Plug 'rust-lang/rust.vim'
 
 " Plug 'nvim-lua/plenary.nvim'
 " Plug 'nvim-telescope/telescope.nvim'

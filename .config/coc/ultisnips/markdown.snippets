@@ -1,0 +1,66 @@
+# A valid snippet should starts with:
+#
+#		snippet trigger_word [ "description" [ options ] ]
+#
+# and end with:
+#
+#		endsnippet
+#
+# Snippet options:
+#
+#		b - Beginning of line.
+#		i - In-word expansion.
+#		w - Word boundary.
+#		r - Regular expression
+#		e - Custom context snippet
+#		A - Snippet will be triggered automatically, when condition matches.
+#
+# Basic example:
+#
+#		snippet emitter "emitter properties" b
+#		private readonly ${1} = new Emitter<$2>()
+#		public readonly ${1/^_(.*)/$1/}: Event<$2> = this.$1.event
+#		endsnippet
+#
+# Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
+
+snippet commit "Prompt to get the code assistant to generate a new MR messages" b
+generate a gitlab mr based on a detailed review of the diff of the committed changes between this branch and main. provide a high-level one line summary to serve as an angular style conventional commit. use git diff to determine the scope of the changes. Use a complete diff to complete your task and write the markdown MR in the console.
+
+The MR can consist of the following sections:
+
+Title: always present - an angular style conventional commit message
+Overview: a high level overview of the changes in the branch
+Changes: applicable for all commits types - short bullet point details of the changes
+New Features: applicable for feat commits - short bullet-point details the new features added to the code
+Technical Details: applicable for fixes - short bullet point detailing what was changed to address an issue
+
+Remember:
+- write the output to the console, NEVER WRITE TO FILE
+- the law of proportionality: if there are only a couple of commits, there should only be a couple of details
+endsnippet
+
+snippet readme-review "Updates readmes in a repo" b
+review all readmes in the repository ensure they are clear and contain relevant information and an overview for the directory where they are sit. Update and/or add an overview if the directory does not contain one. The overview should contain a  general description of the contained code, the architecture. If you have a question about the function of a section, stop and ask me a question.
+endsnippet
+
+
+snippet add_function_docstring "Adds a quality docstring to a function" b
+Add a quality docstring for the added code.
+Below is the implementation of code to $1.
+
+This is how it works:
+$2
+
+<guidelines>
+ Clearly explain the tool's purpose and functionality
+ Specify when the tool should be used
+ detail the parameters it accepts and their formats
+ describe the expected output format
+ note any limitations or constraints
+</guidelines>
+
+<code>
+$3
+</code>
+endsnippet
