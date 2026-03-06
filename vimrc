@@ -56,7 +56,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'mgee/lightline-bufferline'
 
 
-" Plug 'reedes/vim-pencil'
+Plug 'reedes/vim-pencil'
 
 Plug 'mileszs/ack.vim'
 
@@ -476,7 +476,6 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 map <F11> :Goyo <CR>
 
 let g:coc_global_extensions = [
-      \ 'coc-pyright',
       \ 'coc-tsserver',
       \ 'coc-yaml',
       \ 'coc-json',

@@ -1,5 +1,5 @@
-# Amazon Q pre block. Keep at the top of this file.
-[[ -f "${HOME}/.local/share/amazon-q/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/.local/share/amazon-q/shell/zshrc.pre.zsh"
+
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -22,6 +22,8 @@ alias ll='ls -l'
 alias la='ls -a'
 alias cls='clear'
 alias is='isengardcli'
+alias kc='kiro-cli'
+alias pm='podman'
 # alias g='git'
 #
 
@@ -34,6 +36,27 @@ function v
         command vim
     fi
 }
+
+
+# Refresh expired AWS credentials
+aws-refresh() {
+  if [[ -z "$AWS_VAULT" ]]; then
+    echo "Not in an aws-vault session."
+    return 1
+  fi
+  vault_name="$AWS_VAULT"
+  unset AWS_VAULT
+  export AWS_SESSION_EXPIRATION="0"
+  aws-vault exec "$vault_name"
+}
+
+# Wrapper to launch Claude Code with aws-vault
+function claude-bedrock() {
+  local profile="${1:-default}"
+  aws-vault exec "$profile" --duration=8h -- claude "${@:2}"
+}
+
+alias ccb='claude-bedrock'
 
 
 # Set to this to use case-sensitive completion
@@ -58,7 +81,7 @@ setopt histignorealldups sharehistory
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # plugins=(git rails ruby brew)
-plugins=(git aws history-substring-search golang docker vi-mode nvm )
+plugins=(git aws history-substring-search podman vi-mode nvm)
 # plugins=(git brew osx aws history-substring-search gradle go docker vi-mode)
 
 bindkey -M viins 'jj' vi-cmd-mode
@@ -74,8 +97,6 @@ colors
 alias dc=docker-compose
 alias dm=docker-machine
 
-alias pj='pnpm exec projen'
-alias pt='poetry'
 alias pn='pnpm nx'
 #eval "$(direnv hook zsh)"
 #
@@ -123,14 +144,13 @@ export PATH="$HOME/.poetry/bin:$PATH"
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 
 # pnpm
-export PNPM_HOME="/home/dev/.local/share/pnpm"
+export PNPM_HOME="/Users/abest/Library/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
-# eval "$(/home/dev/.local/bin/mise activate zsh)"
-eval "$(direnv hook zsh)"
 
-# Amazon Q post block. Keep at the bottom of this file.
-[[ -f "${HOME}/.local/share/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/.local/share/amazon-q/shell/zshrc.post.zsh"
+# Enable Claude Code to use AWS Bedrock
+export CLAUDE_CODE_USE_BEDROCK=true
+
