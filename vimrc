@@ -461,12 +461,14 @@ function! s:goyo_enter()
     silent! tmux set status off
     Pencil
     set nocursorline
+    let b:coc_suggest_disable = 1
 endfunction
 
 function! s:goyo_leave()
     silent !tmux set status on
     NoPencil
     set nocursorline
+    let b:coc_suggest_disable = 0
 endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
